@@ -1,48 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- ✅ SEO / Social -->
+  <!-- SEO / Social -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Osama Marashdeh · Accountant & Financial Analyst</title>
-  <meta name="description" content="Portfolio of Osama Marashdeh — Accounting, Financial Analysis, Dashboards, and Digital Ops." />
+  <title data-i18n="meta_title">Osama Marashdeh · Accountant & Financial Analyst</title>
+  <meta name="description" data-i18n="meta_desc" content="Portfolio of Osama Marashdeh — Accounting, Financial Analysis, Dashboards, and Digital Ops." />
   <meta property="og:title" content="Osama Marashdeh · Portfolio" />
   <meta property="og:description" content="Accounting + Financial Analysis + Power BI + Excel Automations." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://osamamarashdeh.vercel.app" />
   <meta name="theme-color" content="#0f172a" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%231f2937'/%3E%3Cpath d='M28 82l18-44h10l18 44h-11l-4-10H43l-4 10H28zm19-19h14l-7-18-7 18z' fill='white'/%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg: #0b1220;           /* خلفية داكنة أنيقة */
-      --card:#0f172aCC;        /* زجاجي */
-      --text:#e5e7eb;          /* نص رئيسي */
-      --muted:#9ca3af;         /* نص ثانوي */
-      --brand:#60a5fa;         /* أزرق رايق */
-      --accent:#f59e0b;        /* لمسة ذهبي */
-      --border:#1f2937;        /* حدود ناعمة */
-      --ok:#22c55e;            /* نجاح */
+      --bg:#0b1220;--card:#0f172aCC;--text:#e5e7eb;--muted:#9ca3af;
+      --brand:#60a5fa;--accent:#f59e0b;--border:#1f2937;--ok:#22c55e;
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;scroll-behavior:smooth}
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
       color:var(--text);
       background:
         radial-gradient(1200px 600px at 20% -10%, #1f2937 0, transparent 70%),
         radial-gradient(900px 500px at 110% 0%, #0a2a5f 0, transparent 60%),
         linear-gradient(#0b1220,#0b1220);
-      background-attachment: fixed;
+      background-attachment:fixed;
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:24px}
-    /* Navbar */
-    .nav{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(140%) blur(10px);
-      background:rgba(10,15,25,.55);border-bottom:1px solid var(--border);
-    }
-    .nav .row{display:flex;align-items:center;justify-content:space-between}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);background:rgba(10,15,25,.55);border-bottom:1px solid var(--border)}
     .logo{display:flex;gap:10px;align-items:center;font-weight:700}
     .dot{width:10px;height:10px;border-radius:999px;background:var(--brand);box-shadow:0 0 14px var(--brand)}
     .links{display:none;gap:20px}
@@ -50,17 +38,10 @@
     .cta{padding:10px 16px;border:1px solid var(--border);border-radius:14px}
     .btn{padding:12px 18px;border-radius:14px;border:1px solid var(--border);background:#111827;color:#fff}
     @media(min-width:760px){ .links{display:flex} }
-
-    /* Sections */
     section{padding:72px 0}
     .grid{display:grid;gap:24px}
     @media(min-width:960px){ .grid-2{grid-template-columns:1.2fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
-
-    /* Card / glass */
-    .card{
-      background:var(--card);border:1px solid var(--border);border-radius:22px;
-      box-shadow:0 10px 40px rgba(0,0,0,.25);overflow:hidden
-    }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 10px 40px rgba(0,0,0,.25);overflow:hidden}
     .p24{padding:24px}.p32{padding:32px}
     .muted{color:var(--muted)}
     .pill{padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.04);font-size:12px}
@@ -70,77 +51,59 @@
     .list{list-style:none;padding:0;margin:12px 0}
     .list li{display:flex;gap:10px;align-items:flex-start;margin:8px 0;color:#d1d5db}
     .ok{color:var(--ok)}
-
-    /* Project card */
     .proj{transition:transform .18s ease, box-shadow .18s ease}
     .proj:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.35)}
-    .shot{
-      border:1px solid var(--border);border-radius:16px;background:linear-gradient(#0b1324,#0e1830);
-      height:150px;display:grid;place-items:center;color:#93c5fd
-    }
-
-    /* Footer */
+    .shot{border:1px solid var(--border);border-radius:16px;background:linear-gradient(#0b1324,#0e1830);height:150px;display:grid;place-items:center;color:#93c5fd}
     footer{border-top:1px solid var(--border);color:#9aa3b2}
-
-    /* Tiny fade/slide */
     .fade{opacity:0;transform:translateY(10px);animation:in .7s .1s both}
     @keyframes in{to{opacity:1;transform:none}}
-
-    /* Dark/Light toggle (optional) */
     .theme{position:fixed;right:18px;bottom:18px;z-index:60}
     .toggle{padding:10px 14px;border-radius:14px;border:1px solid var(--border);background:#0d1423;color:#e5e7eb}
     .toggle:active{transform:scale(.98)}
-    .light body{background:#f6f7fb;color:#0f172a}
+    /* RTL support */
+    .rtl *{direction:rtl;text-align:right}
+    .rtl .row{flex-direction:row-reverse}
+    .rtl .links{flex-direction:row-reverse}
   </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="nav">
     <div class="wrap row">
-      <div class="row logo"><span class="dot"></span> Marashdeh</div>
+      <div class="row logo"><span class="dot"></span> <span data-i18n="brand">Marashdeh</span></div>
       <div class="links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </div>
-      <a class="cta" href="#contact">Hire Me</a>
+      <a class="cta" href="#contact" data-i18n="nav_hire">Hire Me</a>
     </div>
   </div>
 
   <!-- HERO -->
   <section class="wrap grid grid-2">
     <div class="fade">
-      <span class="pill">Portfolio · Finance + Creative</span>
-      <h1 class="title">Osama Marashdeh</h1>
-      <p class="lead">
-        Accountant & Financial Analyst focused on <b>digital operations</b>.
-        I build <b>Excel/Power BI</b> systems, automate reporting, and present clear insights.
+      <span class="pill" data-i18n="hero_badge">Portfolio · Finance + Creative</span>
+      <h1 class="title" data-i18n="hero_name">Osama Marashdeh</h1>
+      <p class="lead" data-i18n="hero_lead">
+        Accountant & Financial Analyst focused on digital operations. I build Excel/Power BI systems, automate reporting, and present clear insights.
       </p>
       <div style="display:flex;gap:12px;margin-top:18px">
-        <a class="btn" href="#projects">View Projects</a>
-        <a class="cta" href="#contact">Contact <span style="margin-left:6px">→</span></a>
+        <a class="btn" href="#projects" data-i18n="cta_view">View Projects</a>
+        <a class="cta" href="#contact" data-i18n="cta_contact">Contact →</a>
       </div>
-      <div style="display:flex;gap:10px;margin-top:18px" class="muted">
+      <div id="hero_tags" style="display:flex;gap:10px;margin-top:18px" class="muted" data-i18n="hero_tags">
         <span class="pill">FMVA</span><span class="pill">Power BI</span><span class="pill">Excel</span><span class="pill">QuickBooks</span>
       </div>
     </div>
     <div class="fade">
       <div class="card p24">
-        <div class="shot">Executive KPI / Clean Dashboard</div>
+        <div class="shot" data-i18n="hero_shot">Executive KPI / Clean Dashboard</div>
         <div style="display:grid;gap:10px;margin-top:12px;grid-template-columns:repeat(3,1fr)">
-          <div class="card p24">
-            <div style="font-weight:700">+34%</div>
-            <div class="muted" style="font-size:12px">Faster Close</div>
-          </div>
-          <div class="card p24">
-            <div style="font-weight:700">0→1</div>
-            <div class="muted" style="font-size:12px">Dashboards</div>
-          </div>
-          <div class="card p24">
-            <div style="font-weight:700">✔︎</div>
-            <div class="muted" style="font-size:12px">Audit-ready</div>
-          </div>
+          <div class="card p24"><div style="font-weight:700">+34%</div><div class="muted" style="font-size:12px" data-i18n="kpi1">Faster Close</div></div>
+          <div class="card p24"><div style="font-weight:700">0→1</div><div class="muted" style="font-size:12px" data-i18n="kpi2">Dashboards</div></div>
+          <div class="card p24"><div style="font-weight:700">✔︎</div><div class="muted" style="font-size:12px" data-i18n="kpi3">Audit-ready</div></div>
         </div>
       </div>
     </div>
@@ -149,23 +112,27 @@
   <!-- ABOUT -->
   <section id="about" class="wrap grid grid-2">
     <div class="fade">
-      <h2 class="h2">About Me</h2>
-      <p class="lead">
-        Based in Saudi Arabia with 3+ years across contracting & retail.
-        I translate numbers into actions, automate Excel processes,
-        and structure data for analytics & reporting.
+      <h2 class="h2" data-i18n="about_title">About Me</h2>
+      <p class="lead" data-i18n="about_lead">
+        Based in Saudi Arabia with 3+ years across contracting & retail. I translate numbers into actions and structure data for analytics & reporting.
       </p>
       <ul class="list">
-        <li><span class="ok">▸</span> Financial analysis · ratios · management reports</li>
-        <li><span class="ok">▸</span> Power BI dashboards & Excel automation</li>
-        <li><span class="ok">▸</span> QuickBooks setup · cash & expense control</li>
+        <li><span class="ok">▸</span> <span data-i18n="about_b1">Financial analysis · ratios · management reports</span></li>
+        <li><span class="ok">▸</span> <span data-i18n="about_b2">Power BI dashboards & Excel automation</span></li>
+        <li><span class="ok">▸</span> <span data-i18n="about_b3">QuickBooks setup · cash & expense control</span></li>
       </ul>
     </div>
     <div class="fade card p32">
       <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:14px">
-        <div class="card p24" style="text-align:center"><div style="font-weight:800">3+</div><div class="muted" style="font-size:12px">Years</div></div>
-        <div class="card p24" style="text-align:center"><div style="font-weight:800">8+</div><div class="muted" style="font-size:12px">Projects</div></div>
-        <div class="card p24" style="text-align:center"><div style="font-weight:800">FMVA</div><div class="muted" style="font-size:12px">Certified</div></div>
+        <div class="card p24" style="text-align:center">
+          <div style="font-weight:800">3+</div><div class="muted" style="font-size:12px" data-i18n="metrics_years">Years</div>
+        </div>
+        <div class="card p24" style="text-align:center">
+          <div style="font-weight:800">8+</div><div class="muted" style="font-size:12px" data-i18n="metrics_projects">Projects</div>
+        </div>
+        <div class="card p24" style="text-align:center">
+          <div style="font-weight:800">FMVA</div><div class="muted" style="font-size:12px" data-i18n="metrics_cert">Certified</div>
+        </div>
       </div>
       <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
         <span class="pill">Accounting</span><span class="pill">Financial Modeling</span><span class="pill">Power BI</span>
@@ -176,58 +143,58 @@
 
   <!-- PROJECTS -->
   <section id="projects" class="wrap">
-    <div class="row" style="display:flex;align-items:end;justify-content:space-between">
-      <h2 class="h2">Featured Projects</h2>
-      <a class="muted" href="#contact">Request full portfolio →</a>
+    <div class="row" style="align-items:end">
+      <h2 class="h2" data-i18n="proj_title">Featured Projects</h2>
+      <a class="muted" href="#contact" data-i18n="proj_req">Request full portfolio →</a>
     </div>
     <div class="grid grid-3" style="margin-top:18px">
       <div class="proj card p24">
-        <div class="shot">ASE: Petrochemical Analysis</div>
-        <div style="margin-top:10px;font-weight:700">Amman Stock Exchange</div>
-        <div class="muted" style="font-size:12px">Excel · Ratios · Deck</div>
-        <p class="muted">End-to-end analysis with KPI scorecards & executive summary.</p>
+        <div class="shot" data-i18n="p1_shot">ASE: Petrochemical Analysis</div>
+        <div style="margin-top:10px;font-weight:700" data-i18n="p1_title">Amman Stock Exchange</div>
+        <div class="muted" style="font-size:12px" data-i18n="p1_sub">Excel · Ratios · Deck</div>
+        <p class="muted" data-i18n="p1_desc">End-to-end analysis with KPI scorecards & executive summary.</p>
       </div>
       <div class="proj card p24">
-        <div class="shot">RFID Inventory</div>
-        <div style="margin-top:10px;font-weight:700">Agriculture</div>
-        <div class="muted" style="font-size:12px">Data · Power BI · RFID</div>
-        <p class="muted">Tagging palms/plants and structuring data for analytics.</p>
+        <div class="shot" data-i18n="p2_shot">RFID Inventory</div>
+        <div style="margin-top:10px;font-weight:700" data-i18n="p2_title">Agriculture</div>
+        <div class="muted" style="font-size:12px" data-i18n="p2_sub">Data · Power BI · RFID</div>
+        <p class="muted" data-i18n="p2_desc">Tagging palms/plants and structuring data for analytics.</p>
       </div>
       <div class="proj card p24">
-        <div class="shot">Four Seasons Contracting</div>
-        <div style="margin-top:10px;font-weight:700">Cost Control</div>
-        <div class="muted" style="font-size:12px">Accounting · Ops</div>
-        <p class="muted">Operational accounting, cash & expense controls.</p>
+        <div class="shot" data-i18n="p3_shot">Four Seasons Contracting</div>
+        <div style="margin-top:10px;font-weight:700" data-i18n="p3_title">Cost Control</div>
+        <div class="muted" style="font-size:12px" data-i18n="p3_sub">Accounting · Ops</div>
+        <p class="muted" data-i18n="p3_desc">Operational accounting, cash & expense controls.</p>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="wrap">
-    <h2 class="h2">Services</h2>
+    <h2 class="h2" data-i18n="services_title">Services</h2>
     <div class="grid grid-3" style="margin-top:18px">
       <div class="card p24">
-        <div style="font-weight:700">Accounting & Reporting</div>
+        <div style="font-weight:700" data-i18n="s1">Accounting & Reporting</div>
         <ul class="list">
-          <li><span class="ok">▸</span> Bookkeeping & GL</li>
-          <li><span class="ok">▸</span> Monthly management reports</li>
-          <li><span class="ok">▸</span> Cash & expense control</li>
+          <li><span class="ok">▸</span> <span data-i18n="s1a">Bookkeeping & GL</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s1b">Monthly management reports</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s1c">Cash & expense control</span></li>
         </ul>
       </div>
       <div class="card p24">
-        <div style="font-weight:700">Dashboards & BI</div>
+        <div style="font-weight:700" data-i18n="s2">Dashboards & BI</div>
         <ul class="list">
-          <li><span class="ok">▸</span> Power BI visuals</li>
-          <li><span class="ok">▸</span> Excel automation</li>
-          <li><span class="ok">▸</span> KPI tracking</li>
+          <li><span class="ok">▸</span> <span data-i18n="s2a">Power BI visuals</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s2b">Excel automation</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s2c">KPI tracking</span></li>
         </ul>
       </div>
       <div class="card p24">
-        <div style="font-weight:700">Branding & Web</div>
+        <div style="font-weight:700" data-i18n="s3">Branding & Web</div>
         <ul class="list">
-          <li><span class="ok">▸</span> Wix & landing pages</li>
-          <li><span class="ok">▸</span> Logo & identity</li>
-          <li><span class="ok">▸</span> Copy & campaigns</li>
+          <li><span class="ok">▸</span> <span data-i18n="s3a">Wix & landing pages</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s3b">Logo & identity</span></li>
+          <li><span class="ok">▸</span> <span data-i18n="s3c">Copy & campaigns</span></li>
         </ul>
       </div>
     </div>
@@ -236,159 +203,152 @@
   <!-- CONTACT -->
   <section id="contact" class="wrap grid grid-2">
     <div class="card p32">
-      <h2 class="h2">Let’s work together</h2>
-      <p class="muted">Tell me about your needs and I’ll get back within 24–48 hours.</p>
+      <h2 class="h2" data-i18n="contact_title">Let’s work together</h2>
+      <p class="muted" data-i18n="contact_lead">Tell me about your needs and I’ll get back within 24–48 hours.</p>
       <div class="grid" style="margin-top:12px">
-        <a class="btn" href="mailto:osama@example.com">✉️  Email</a>
-        <a class="cta" href="https://wa.me/9665xxxxxxxx" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="cta" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:osama@example.com" data-i18n="contact_email">Email</a>
+        <a class="cta" href="https://wa.me/9665xxxxxxxx" target="_blank" rel="noopener" data-i18n="contact_whatsapp">WhatsApp</a>
+        <a class="cta" href="https://www.linkedin.com/" target="_blank" rel="noopener" data-i18n="contact_linkedin">LinkedIn</a>
       </div>
     </div>
     <form class="card p32" onsubmit="event.preventDefault();alert('Thanks! I will reach out soon.');this.reset();">
-      <label>Name<br><input required style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb"></label>
-      <label style="margin-top:10px;display:block">Email<br><input type="email" required style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb"></label>
-      <label style="margin-top:10px;display:block">Project brief<br><textarea rows="5" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb"></textarea></label>
-      <button class="btn" style="width:100%;margin-top:12px">Send Message</button>
+      <label><span data-i18n="form_name">Name</span><br>
+        <input required style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb">
+      </label>
+      <label style="margin-top:10px;display:block"><span data-i18n="form_email">Email</span><br>
+        <input type="email" required style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb">
+      </label>
+      <label style="margin-top:10px;display:block"><span data-i18n="form_brief">Project brief</span><br>
+        <textarea rows="5" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:#e5e7eb"></textarea>
+      </label>
+      <button class="btn" style="width:100%;margin-top:12px" data-i18n="form_send">Send Message</button>
     </form>
   </section>
 
   <footer class="wrap" style="padding:36px 24px">
-    <div class="muted">© <span id="y"></span> Osama Marashdeh · Finance & Creative · Built with ♥</div>
+    <div class="muted">© <span id="y"></span> Osama Marashdeh · <span data-i18n="footer">Finance & Creative · Built with ♥</span></div>
   </footer>
 
-  <!-- Theme toggle (اختياري) -->
-  <div class="theme"><button class="toggle" onclick="document.documentElement.classList.toggle('light')">Toggle Theme</button></div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <!-- Theme toggle -->
+  <div class="theme">
+    <button class="toggle" onclick="document.documentElement.classList.toggle('light')">Theme</button>
+  </div>
+  <!-- Language Toggle -->
+  <div class="theme" style="right:auto; left:18px;">
+    <button class="toggle" id="langToggle">AR / EN</button>
+  </div>
 
-  <!-- Language Toggle (AR / EN) -->
-<div class="theme" style="right:auto; left:18px;">
-  <button class="toggle" id="langToggle">AR / EN</button>
-</div>
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
 
-<script>
-  // حفظ اللغة المختارة
-  const LS_KEY = "site_lang";
-  const rtlClass = "rtl";
-  const langs = {
-    en: {
-      nav_about: "About",
-      nav_projects: "Projects",
-      nav_services: "Services",
-      nav_contact: "Contact",
-      hero_badge: "Portfolio · Finance + Creative",
-      hero_name: "Osama Marashdeh",
-      hero_lead: "Accountant & Financial Analyst focused on digital operations. I build Excel/Power BI systems, automate reporting, and present clear insights.",
-      cta_view: "View Projects",
-      cta_contact: "Contact",
-      hero_tags: "FMVA|Power BI|Excel|QuickBooks",
-      about_title: "About Me",
-      about_lead: "Based in Saudi Arabia with 3+ years across contracting & retail. I translate numbers into actions and structure data for analytics & reporting.",
-      about_b1: "Financial analysis · ratios · management reports",
-      about_b2: "Power BI dashboards & Excel automation",
-      about_b3: "QuickBooks setup · cash & expense control",
-      metrics_years: "Years",
-      metrics_projects: "Projects",
-      metrics_cert: "Certified",
-      proj_title: "Featured Projects",
-      proj_req: "Request full portfolio →",
-      p1_title: "Amman Stock Exchange",
-      p1_sub: "Excel · Ratios · Deck",
-      p1_desc: "End-to-end analysis with KPI scorecards & executive summary.",
-      p2_title: "RFID Inventory",
-      p2_sub: "Data · Power BI · RFID",
-      p2_desc: "Tagging palms/plants and structuring data for analytics.",
-      p3_title: "Four Seasons Contracting",
-      p3_sub: "Accounting · Ops",
-      p3_desc: "Operational accounting, cash & expense controls.",
-      services_title: "Services",
-      s1: "Accounting & Reporting", s1a:"Bookkeeping & GL", s1b:"Monthly management reports", s1c:"Cash & expense control",
-      s2: "Dashboards & BI", s2a:"Power BI visuals", s2b:"Excel automation", s2c:"KPI tracking",
-      s3: "Branding & Web", s3a:"Wix & landing pages", s3b:"Logo & identity", s3c:"Copy & campaigns",
-      contact_title: "Let’s work together",
-      contact_lead: "Tell me about your needs and I’ll get back within 24–48 hours.",
-      contact_email: "Email", contact_whatsapp: "WhatsApp", contact_linkedin: "LinkedIn",
-      form_name: "Name", form_email: "Email", form_brief: "Project brief", form_send: "Send Message",
-      footer: "Finance & Creative · Built with ♥"
-    },
-    ar: {
-      nav_about: "نبذة",
-      nav_projects: "المشاريع",
-      nav_services: "الخدمات",
-      nav_contact: "تواصل",
-      hero_badge: "بورتفوليو · مالية + كريتيف",
-      hero_name: "أسامة مرشدة",
-      hero_lead: "محاسب ومحلل مالي أركّز على التحول الرقمي. أبني أنظمة Excel/Power BI وأؤتمت التقارير وأقدّم رؤى واضحة.",
-      cta_view: "شاهد الأعمال",
-      cta_contact: "تواصل",
-      hero_tags: "FMVA|Power BI|Excel|QuickBooks",
-      about_title: "عنّي",
-      about_lead: "مقرّي السعودية وخبرة 3+ سنوات بالمقاولات والبيع بالتجزئة. أحوّل الأرقام لأفعال وأنظّم البيانات للتحليل والتقارير.",
-      about_b1: "تحليل مالي · نسب · تقارير إدارية",
-      about_b2: "لوحات Power BI وأتمتة Excel",
-      about_b3: "إعداد QuickBooks · ضبط النقد والمصروف",
-      metrics_years: "سنوات",
-      metrics_projects: "مشاريع",
-      metrics_cert: "اعتماد",
-      proj_title: "أبرز المشاريع",
-      proj_req: "اطلب عرض البورتفوليو الكامل →",
-      p1_title: "بورصة عمّان",
-      p1_sub: "Excel · نسب · عرض تقديمي",
-      p1_desc: "تحليل متكامل مع مؤشرات KPIs وملخص تنفيذي.",
-      p2_title: "جرد RFID",
-      p2_sub: "بيانات · Power BI · RFID",
-      p2_desc: "ترميز النخيل والنباتات وتنظيم البيانات للتحليلات.",
-      p3_title: "مشروع فورسيزنز",
-      p3_sub: "محاسبة · عمليات",
-      p3_desc: "محاسبة تشغيلية وضبط نقد ومصروفات.",
-      services_title: "الخدمات",
-      s1: "محاسبة وتقارير", s1a:"قيود ودفاتر", s1b:"تقارير إدارية شهرية", s1c:"ضبط النقد والمصروف",
-      s2: "لوحات وتقارير BI", s2a:"تصميم Power BI", s2b:"أتمتة Excel", s2c:"مؤشرات KPIs",
-      s3: "براندنج وويب", s3a:"Wix وصفحات هبوط", s3b:"شعار وهوية", s3c:"محتوى وحملات",
-      contact_title: "خلّينا نشتغل",
-      contact_lead: "احكيلي عن احتياجك وبرجع لك خلال 24–48 ساعة.",
-      contact_email: "البريد", contact_whatsapp: "واتساب", contact_linkedin: "لينكدإن",
-      form_name: "الاسم", form_email: "البريد الإلكتروني", form_brief: "وصف مختصر للمشروع", form_send: "إرسال الرسالة",
-      footer: "مالية + كريتيف · صُنع بحب ♥"
-    }
-  };
-
-  function applyLang(lang){
-    // حفظ وتحديث اتجاه الصفحة
-    localStorage.setItem(LS_KEY, lang);
-    document.documentElement.lang = lang;
-    const isAr = lang === "ar";
-    document.documentElement.dir = isAr ? "rtl" : "ltr";
-    document.body.classList.toggle(rtlClass, isAr);
-
-    // تعبئة النصوص حسب data-i18n
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key = el.getAttribute("data-i18n");
-      const value = (langs[lang]||{})[key] || "";
-      if(!value) return;
-      if(key === "hero_tags"){
-        // أمثلة للبادجات
-        el.innerHTML = "";
-        value.split("|").forEach(tag=>{
-          const span = document.createElement("span");
-          span.className = "pill";
-          span.textContent = tag.trim();
-          el.appendChild(span);
-        });
-      } else {
-        el.innerHTML = value;
+    const LS_KEY="site_lang";
+    const langs={
+      en:{
+        meta_title:"Osama Marashdeh · Accountant & Financial Analyst",
+        meta_desc:"Portfolio of Osama Marashdeh — Accounting, Financial Analysis, Dashboards, and Digital Ops.",
+        brand:"Marashdeh",
+        nav_about:"About",nav_projects:"Projects",nav_services:"Services",nav_contact:"Contact",nav_hire:"Hire Me",
+        hero_badge:"Portfolio · Finance + Creative",
+        hero_name:"Osama Marashdeh",
+        hero_lead:"Accountant & Financial Analyst focused on digital operations. I build Excel/Power BI systems, automate reporting, and present clear insights.",
+        cta_view:"View Projects",cta_contact:"Contact →",
+        hero_tags:"FMVA|Power BI|Excel|QuickBooks",
+        hero_shot:"Executive KPI / Clean Dashboard",
+        kpi1:"Faster Close",kpi2:"Dashboards",kpi3:"Audit-ready",
+        about_title:"About Me",
+        about_lead:"Based in Saudi Arabia with 3+ years across contracting & retail. I translate numbers into actions and structure data for analytics & reporting.",
+        about_b1:"Financial analysis · ratios · management reports",
+        about_b2:"Power BI dashboards & Excel automation",
+        about_b3:"QuickBooks setup · cash & expense control",
+        metrics_years:"Years",metrics_projects:"Projects",metrics_cert:"Certified",
+        proj_title:"Featured Projects",proj_req:"Request full portfolio →",
+        p1_shot:"ASE: Petrochemical Analysis",p1_title:"Amman Stock Exchange",p1_sub:"Excel · Ratios · Deck",p1_desc:"End-to-end analysis with KPI scorecards & executive summary.",
+        p2_shot:"RFID Inventory",p2_title:"Agriculture",p2_sub:"Data · Power BI · RFID",p2_desc:"Tagging palms/plants and structuring data for analytics.",
+        p3_shot:"Four Seasons Contracting",p3_title:"Cost Control",p3_sub:"Accounting · Ops",p3_desc:"Operational accounting, cash & expense controls.",
+        services_title:"Services",
+        s1:"Accounting & Reporting",s1a:"Bookkeeping & GL",s1b:"Monthly management reports",s1c:"Cash & expense control",
+        s2:"Dashboards & BI",s2a:"Power BI visuals",s2b:"Excel automation",s2c:"KPI tracking",
+        s3:"Branding & Web",s3a:"Wix & landing pages",s3b:"Logo & identity",s3c:"Copy & campaigns",
+        contact_title:"Let’s work together",contact_lead:"Tell me about your needs and I’ll get back within 24–48 hours.",
+        contact_email:"Email",contact_whatsapp:"WhatsApp",contact_linkedin:"LinkedIn",
+        form_name:"Name",form_email:"Email",form_brief:"Project brief",form_send:"Send Message",
+        footer:"Finance & Creative · Built with ♥"
+      },
+      ar:{
+        meta_title:"أسامة مرشدة · محاسب ومحلل مالي",
+        meta_desc:"بورتفوليو أسامة مرشدة — محاسبة، تحليل مالي، لوحات معلومات، وتشغيل رقمي.",
+        brand:"مرشدة",
+        nav_about:"نبذة",nav_projects:"المشاريع",nav_services:"الخدمات",nav_contact:"تواصل",nav_hire:"وظفني",
+        hero_badge:"بورتفوليو · مالية + كريتيف",
+        hero_name:"أسامة مرشدة",
+        hero_lead:"محاسب ومحلل مالي أركز على التشغيل الرقمي. أبني أنظمة Excel/Power BI، أؤتمت التقارير وأقدّم رؤى واضحة.",
+        cta_view:"شاهد الأعمال",cta_contact:"تواصل →",
+        hero_tags:"FMVA|Power BI|Excel|QuickBooks",
+        hero_shot:"مؤشرات تنفيذية / لوحة نظيفة",
+        kpi1:"إقفال أسرع",kpi2:"لوحات معلومات",kpi3:"جاهزية للتدقيق",
+        about_title:"عنّي",
+        about_lead:"مقرّي السعودية وخبرة 3+ سنوات في المقاولات والبيع بالتجزئة. أحوّل الأرقام لأفعال وأنظّم البيانات للتحليلات والتقارير.",
+        about_b1:"تحليل مالي · نسب · تقارير إدارية",
+        about_b2:"لوحات Power BI وأتمتة Excel",
+        about_b3:"إعداد QuickBooks · ضبط النقد والمصروف",
+        metrics_years:"سنوات",metrics_projects:"مشاريع",metrics_cert:"اعتماد",
+        proj_title:"أبرز المشاريع",proj_req:"اطلب البورتفوليو الكامل →",
+        p1_shot:"بورصة عمّان: قطاع البتروكيماويات",p1_title:"بورصة عمّان",p1_sub:"Excel · نسب · عرض",p1_desc:"تحليل متكامل مع KPIs وملخص تنفيذي.",
+        p2_shot:"جرد RFID",p2_title:"القطاع الزراعي",p2_sub:"بيانات · Power BI · RFID",p2_desc:"ترميز النخيل والنباتات وتنظيم البيانات للتحليلات.",
+        p3_shot:"فورسيزنز للمقاولات",p3_title:"ضبط التكاليف",p3_sub:"محاسبة · عمليات",p3_desc:"محاسبة تشغيلية وضبط النقد والمصروفات.",
+        services_title:"الخدمات",
+        s1:"محاسبة وتقارير",s1a:"قيود ودفاتر",s1b:"تقارير إدارية شهرية",s1c:"ضبط النقد والمصروف",
+        s2:"لوحات وذكاء أعمال",s2a:"تصميم Power BI",s2b:"أتمتة Excel",s2c:"متابعة مؤشرات KPIs",
+        s3:"براندنج وويب",s3a:"Wix وصفحات هبوط",s3b:"شعار وهوية",s3c:"محتوى وحملات",
+        contact_title:"خلّينا نشتغل سوا",contact_lead:"احكيلي عن احتياجك وبرجع لك خلال 24–48 ساعة.",
+        contact_email:"البريد",contact_whatsapp:"واتساب",contact_linkedin:"لينكدإن",
+        form_name:"الاسم",form_email:"البريد الإلكتروني",form_brief:"وصف مختصر للمشروع",form_send:"إرسال الرسالة",
+        footer:"مالية + كريتيف · صُنع بحب ♥"
       }
+    };
+
+    function applyLang(lang){
+      localStorage.setItem(LS_KEY,lang);
+      document.documentElement.lang=lang;
+      const isAr=lang==="ar";
+      document.documentElement.dir=isAr?"rtl":"ltr";
+      document.body.classList.toggle("rtl",isAr);
+
+      // تعبئة النصوص
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key=el.getAttribute("data-i18n");
+        const val=(langs[lang]||{})[key]||"";
+        if(!val) return;
+        if(key==="hero_tags"){
+          const container=document.getElementById("hero_tags");
+          if(container){
+            container.innerHTML="";
+            val.split("|").forEach(tag=>{
+              const span=document.createElement("span");
+              span.className="pill"; span.textContent=tag.trim();
+              container.appendChild(span);
+            });
+          }
+        }else{
+          if(el.tagName==="META"){
+            el.setAttribute("content",val);
+          }else{
+            el.innerHTML=val;
+          }
+        }
+      });
+
+      // تحديث العنوان (title)
+      const titleNode=document.querySelector("title[data-i18n='meta_title']");
+      if(titleNode) titleNode.textContent=langs[lang].meta_title||titleNode.textContent;
+    }
+
+    document.getElementById("langToggle").addEventListener("click", ()=>{
+      const current=localStorage.getItem(LS_KEY)||"en";
+      applyLang(current==="en"?"ar":"en");
     });
-  }
 
-  // زر المبدّل
-  document.getElementById("langToggle").addEventListener("click", ()=>{
-    const current = localStorage.getItem(LS_KEY) || "en";
-    applyLang(current === "en" ? "ar" : "en");
-  });
-
-  // تفعيل عند التحميل
-  applyLang(localStorage.getItem(LS_KEY) || "en");
-</script>
-
+    applyLang(localStorage.getItem(LS_KEY)||"en");
+  </script>
 </body>
 </html>
