@@ -206,7 +206,7 @@ export default function App() {
       </section>
 
       <footer className="py-10 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} Osama Marashdeh · Finance & Creative
+        © {new Date().getFullYear()} OsamaggMarashdeh · Finance & Creative
       </footer>
     </div>
   );
