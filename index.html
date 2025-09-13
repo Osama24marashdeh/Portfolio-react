@@ -259,5 +259,136 @@
   <!-- Theme toggle (اختياري) -->
   <div class="theme"><button class="toggle" onclick="document.documentElement.classList.toggle('light')">Toggle Theme</button></div>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- Language Toggle (AR / EN) -->
+<div class="theme" style="right:auto; left:18px;">
+  <button class="toggle" id="langToggle">AR / EN</button>
+</div>
+
+<script>
+  // حفظ اللغة المختارة
+  const LS_KEY = "site_lang";
+  const rtlClass = "rtl";
+  const langs = {
+    en: {
+      nav_about: "About",
+      nav_projects: "Projects",
+      nav_services: "Services",
+      nav_contact: "Contact",
+      hero_badge: "Portfolio · Finance + Creative",
+      hero_name: "Osama Marashdeh",
+      hero_lead: "Accountant & Financial Analyst focused on digital operations. I build Excel/Power BI systems, automate reporting, and present clear insights.",
+      cta_view: "View Projects",
+      cta_contact: "Contact",
+      hero_tags: "FMVA|Power BI|Excel|QuickBooks",
+      about_title: "About Me",
+      about_lead: "Based in Saudi Arabia with 3+ years across contracting & retail. I translate numbers into actions and structure data for analytics & reporting.",
+      about_b1: "Financial analysis · ratios · management reports",
+      about_b2: "Power BI dashboards & Excel automation",
+      about_b3: "QuickBooks setup · cash & expense control",
+      metrics_years: "Years",
+      metrics_projects: "Projects",
+      metrics_cert: "Certified",
+      proj_title: "Featured Projects",
+      proj_req: "Request full portfolio →",
+      p1_title: "Amman Stock Exchange",
+      p1_sub: "Excel · Ratios · Deck",
+      p1_desc: "End-to-end analysis with KPI scorecards & executive summary.",
+      p2_title: "RFID Inventory",
+      p2_sub: "Data · Power BI · RFID",
+      p2_desc: "Tagging palms/plants and structuring data for analytics.",
+      p3_title: "Four Seasons Contracting",
+      p3_sub: "Accounting · Ops",
+      p3_desc: "Operational accounting, cash & expense controls.",
+      services_title: "Services",
+      s1: "Accounting & Reporting", s1a:"Bookkeeping & GL", s1b:"Monthly management reports", s1c:"Cash & expense control",
+      s2: "Dashboards & BI", s2a:"Power BI visuals", s2b:"Excel automation", s2c:"KPI tracking",
+      s3: "Branding & Web", s3a:"Wix & landing pages", s3b:"Logo & identity", s3c:"Copy & campaigns",
+      contact_title: "Let’s work together",
+      contact_lead: "Tell me about your needs and I’ll get back within 24–48 hours.",
+      contact_email: "Email", contact_whatsapp: "WhatsApp", contact_linkedin: "LinkedIn",
+      form_name: "Name", form_email: "Email", form_brief: "Project brief", form_send: "Send Message",
+      footer: "Finance & Creative · Built with ♥"
+    },
+    ar: {
+      nav_about: "نبذة",
+      nav_projects: "المشاريع",
+      nav_services: "الخدمات",
+      nav_contact: "تواصل",
+      hero_badge: "بورتفوليو · مالية + كريتيف",
+      hero_name: "أسامة مرشدة",
+      hero_lead: "محاسب ومحلل مالي أركّز على التحول الرقمي. أبني أنظمة Excel/Power BI وأؤتمت التقارير وأقدّم رؤى واضحة.",
+      cta_view: "شاهد الأعمال",
+      cta_contact: "تواصل",
+      hero_tags: "FMVA|Power BI|Excel|QuickBooks",
+      about_title: "عنّي",
+      about_lead: "مقرّي السعودية وخبرة 3+ سنوات بالمقاولات والبيع بالتجزئة. أحوّل الأرقام لأفعال وأنظّم البيانات للتحليل والتقارير.",
+      about_b1: "تحليل مالي · نسب · تقارير إدارية",
+      about_b2: "لوحات Power BI وأتمتة Excel",
+      about_b3: "إعداد QuickBooks · ضبط النقد والمصروف",
+      metrics_years: "سنوات",
+      metrics_projects: "مشاريع",
+      metrics_cert: "اعتماد",
+      proj_title: "أبرز المشاريع",
+      proj_req: "اطلب عرض البورتفوليو الكامل →",
+      p1_title: "بورصة عمّان",
+      p1_sub: "Excel · نسب · عرض تقديمي",
+      p1_desc: "تحليل متكامل مع مؤشرات KPIs وملخص تنفيذي.",
+      p2_title: "جرد RFID",
+      p2_sub: "بيانات · Power BI · RFID",
+      p2_desc: "ترميز النخيل والنباتات وتنظيم البيانات للتحليلات.",
+      p3_title: "مشروع فورسيزنز",
+      p3_sub: "محاسبة · عمليات",
+      p3_desc: "محاسبة تشغيلية وضبط نقد ومصروفات.",
+      services_title: "الخدمات",
+      s1: "محاسبة وتقارير", s1a:"قيود ودفاتر", s1b:"تقارير إدارية شهرية", s1c:"ضبط النقد والمصروف",
+      s2: "لوحات وتقارير BI", s2a:"تصميم Power BI", s2b:"أتمتة Excel", s2c:"مؤشرات KPIs",
+      s3: "براندنج وويب", s3a:"Wix وصفحات هبوط", s3b:"شعار وهوية", s3c:"محتوى وحملات",
+      contact_title: "خلّينا نشتغل",
+      contact_lead: "احكيلي عن احتياجك وبرجع لك خلال 24–48 ساعة.",
+      contact_email: "البريد", contact_whatsapp: "واتساب", contact_linkedin: "لينكدإن",
+      form_name: "الاسم", form_email: "البريد الإلكتروني", form_brief: "وصف مختصر للمشروع", form_send: "إرسال الرسالة",
+      footer: "مالية + كريتيف · صُنع بحب ♥"
+    }
+  };
+
+  function applyLang(lang){
+    // حفظ وتحديث اتجاه الصفحة
+    localStorage.setItem(LS_KEY, lang);
+    document.documentElement.lang = lang;
+    const isAr = lang === "ar";
+    document.documentElement.dir = isAr ? "rtl" : "ltr";
+    document.body.classList.toggle(rtlClass, isAr);
+
+    // تعبئة النصوص حسب data-i18n
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key = el.getAttribute("data-i18n");
+      const value = (langs[lang]||{})[key] || "";
+      if(!value) return;
+      if(key === "hero_tags"){
+        // أمثلة للبادجات
+        el.innerHTML = "";
+        value.split("|").forEach(tag=>{
+          const span = document.createElement("span");
+          span.className = "pill";
+          span.textContent = tag.trim();
+          el.appendChild(span);
+        });
+      } else {
+        el.innerHTML = value;
+      }
+    });
+  }
+
+  // زر المبدّل
+  document.getElementById("langToggle").addEventListener("click", ()=>{
+    const current = localStorage.getItem(LS_KEY) || "en";
+    applyLang(current === "en" ? "ar" : "en");
+  });
+
+  // تفعيل عند التحميل
+  applyLang(localStorage.getItem(LS_KEY) || "en");
+</script>
+
 </body>
 </html>
