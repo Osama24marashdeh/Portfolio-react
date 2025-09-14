@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Osama Marashdeh — Accountant & Financial Analyst portfolio: projects, services, and contact." />
+  <meta name="description" content="Osama Marashdeh — Accountant & Financial Analyst portfolio: projects, skills, experience, and contact." />
   <title>Osama Marashdeh — Portfolio</title>
   <style>
     :root{
@@ -23,14 +23,16 @@
     @media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}}
     body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    img{max-width:100%;display:block;border-radius:12px;border:1px solid var(--border)}
     .container{width:min(1100px,92%);margin-inline:auto}
 
     /* NAV */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#3b82f6)}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .logo{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);color:#06131f;font-weight:900}
+    .logo span{transform:translateY(1px)}
+    .brand .name{font-weight:800}
     .nav-actions{display:flex;gap:10px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text);transition:.2s ease;cursor:pointer}
     .btn:hover{border-color:var(--accent);color:var(--accent)}
@@ -63,9 +65,32 @@
     .kpi b{display:block;font-size:22px}
     .kpi span{color:var(--muted);font-size:12px}
 
+    /* SUMMARY */
+    .summary .card{padding:22px}
+
+    /* SKILLS */
+    .skills .card{padding:22px}
+    .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media (min-width:700px){.skill-grid{grid-template-columns:repeat(4,1fr)}}
+    .pill{padding:10px 12px;border-radius:999px;border:1px solid var(--border);background:#0b1323;text-align:center;color:var(--muted);font-size:14px}
+
+    /* EXPERIENCE */
+    .exp .card{padding:22px}
+    .exp-item{padding:16px;border:1px solid var(--border);border-radius:12px;margin-bottom:12px}
+    .exp-item h3{margin:0 0 6px;font-size:18px}
+    .exp-item .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+    .bullets{margin:0 0 0 18px}
+
+    /* EDUCATION & COURSES */
+    .edu .card,.courses .card{padding:22px}
+    .timeline{display:grid;gap:12px}
+    .t-item{border:1px solid var(--border);border-radius:12px;padding:14px}
+    .t-item .title{font-weight:700}
+    .t-item .meta{color:var(--muted);font-size:13px}
+
     /* PROJECTS */
     .project{padding:18px}
-    .project h3{margin:0 0 6px;font-size:18px}
+    .project h3{margin:10px 0 6px;font-size:18px}
     .project p{margin:0 0 10px;color:var(--muted)}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
     .tag{padding:6px 10px;border-radius:999px;background:#0b1323;border:1px solid var(--border);font-size:12px;color:var(--muted)}
@@ -89,6 +114,8 @@
 
     /* FOOTER */
     footer{border-top:1px solid var(--border);padding:22px 0;color:#9ca3af;text-align:center}
+    .socials{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .socials a{border:1px solid var(--border);padding:8px 12px;border-radius:999px}
   </style>
 </head>
 <body>
@@ -96,8 +123,9 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Homepage">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Osama Marashdeh</span>
+        <!-- Text-based logo -->
+        <span class="logo" aria-hidden="true"><span>OM</span></span>
+        <span class="name">Osama Marashdeh</span>
       </a>
       <div class="nav-actions">
         <a class="btn" href="#projects">Projects</a>
@@ -114,37 +142,22 @@
       <p>Specialized in cash management, fixed assets, and building practical dashboards (Excel / Power BI). Based in Saudi Arabia.</p>
       <div class="hero-cta">
         <a class="btn primary" href="#contact">Let's work together</a>
-        <a class="btn" href="#projects">See projects</a>
+        <a class="btn" href="#resume" onclick="alert('Place your PDF at assets/Osama-Marashdeh-Resume.pdf and link it here.');return false;">Download Resume</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- PROJECTS -->
-    <section id="projects" class="container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Selected Projects</h2></div>
-      <div class="grid cols-3">
-        <article class="card project">
-          <h3>Fixed Asset Register + QR</h3>
-          <p>A corporate-ready asset tagging system with QR/Barcode labels and audit logs.</p>
-          <div class="tags">
-            <span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">QR</span>
-          </div>
-        </article>
-        <article class="card project">
-          <h3>Cash Management Playbook</h3>
-          <p>Daily cash positioning model and reconciliation workflow for retail operations.</p>
-          <div class="tags">
-            <span class="tag">Cash Ops</span><span class="tag">Controls</span><span class="tag">Odoo/Oracle</span>
-          </div>
-        </article>
-        <article class="card project">
-          <h3>Industry Ratio Analysis</h3>
-          <p>Petrochemical company analysis with ratio benchmarking and executive summary.</p>
-          <div class="tags">
-            <span class="tag">Financial Analysis</span><span class="tag">Power BI</span>
-          </div>
-        </article>
+    <!-- SUMMARY -->
+    <section class="summary container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Summary</h2></div>
+      <div class="card">
+        <p>
+          Proactive and detail-oriented Accountant experienced in managing comprehensive accounting functions and leading
+          financial operations in contracting sectors. Took full ownership of accounting operations at Pine Landscaping Company
+          after an intensive ramp-up, and currently manage financial operations for the Four Seasons project (≈ SAR 30M).
+          FMVA® candidate (CFI) to deepen financial modeling and analysis capabilities.
+        </p>
       </div>
     </section>
 
@@ -157,23 +170,135 @@
             I'm Osama Hasan Mouhammed Marashdeh, an accountant with hands-on experience in project accounting and
             financial analysis. I care about reliable numbers, fast workflows, and documentation that scales.
           </p>
-          <p class="hint">Tools: Excel · Power BI · QuickBooks · ERP (Oracle/Odoo)</p>
+          <p class="hint">Tools: Excel · Power BI · QuickBooks · Al‑Ameen · ERP (Oracle/Odoo)</p>
           <div class="kpis">
             <div class="kpi"><b>3+ yrs</b><span>Accounting experience</span></div>
             <div class="kpi"><b>20+</b><span>Dashboards & reports</span></div>
-            <div class="kpi"><b>FMVA</b><span>Certification</span></div>
+            <div class="kpi"><b>FMVA</b><span>Candidate (CFI)</span></div>
           </div>
         </div>
         <div class="card">
-          <p style="margin:0 0 8px">What I can help with</p>
-          <ul style="margin:0 0 6px 18px">
-            <li>Cash control & reconciliation workflows</li>
-            <li>Fixed asset registers with QR/Barcode labels</li>
-            <li>Executive dashboards (Excel/Power BI)</li>
-            <li>Financial statements analysis & ratios</li>
-          </ul>
-          <p class="hint">Need something specific? Tell me your constraints (timelines, ERP, data) and I’ll propose a clear plan.</p>
+          <img src="https://images.unsplash.com/photo-1551292831-023188e78222?q=80&w=1600&auto=format&fit=crop" alt="Finance desk with laptop and charts" />
         </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Skills</h2></div>
+      <div class="card">
+        <div class="skill-grid">
+          <div class="pill">QuickBooks</div>
+          <div class="pill">Project Financial Management</div>
+          <div class="pill">Microsoft Office</div>
+          <div class="pill">Power BI</div>
+          <div class="pill">Al‑Ameen Business Solutions</div>
+          <div class="pill">Analytical Skills</div>
+          <div class="pill">Financial Reporting</div>
+          <div class="pill">VAT & Compliance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="exp container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Professional Experience</h2></div>
+      <div class="card">
+        <div class="exp-item">
+          <h3>Accountant — Pine Landscaping Company</h3>
+          <div class="meta">Jeddah · May 2023 – Present</div>
+          <ul class="bullets">
+            <li>Took full ownership of accounting operations after 8‑month structured training under the Chief Accountant.</li>
+            <li>Oversaw financial management of the SAR 30M Four Seasons project (cost control & revenue tracking).</li>
+            <li>Filed VAT returns and maintained full compliance with Saudi tax regulations.</li>
+            <li>Designed and implemented Power BI dashboards to support strategic decisions.</li>
+            <li>Improved accuracy, timeliness, and clarity of financial reporting for executives.</li>
+            <li>Mentored and onboarded a junior accountant; streamlined processes to cut reporting turnaround by ~30%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="edu container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Education</h2></div>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="title">Bachelor's Degree in Accounting — Yarmouk University</div>
+            <div class="meta">Irbid · Sep 2019 – Feb 2023</div>
+            <p style="margin:6px 0 0">Comprehensive foundation in Financial Reporting, Tax Accounting, and Auditing; capstone analysis with strategic recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="courses container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Courses</h2></div>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="title">Financial Modeling & Valuation Analyst (FMVA®) — CFI</div>
+            <div class="meta">Online · Expected Dec 2025</div>
+          </div>
+          <div class="t-item">
+            <div class="title">McKinsey Forward Program — McKinsey & Company</div>
+            <div class="meta">Online · May 2023</div>
+          </div>
+          <div class="t-item">
+            <div class="title">Introduction to Financial Accounting: The Accounting Cycle — Coursera</div>
+            <div class="meta">Online · Nov 2023</div>
+          </div>
+          <div class="t-item">
+            <div class="title">ACCA Advantage: Practical Experience in Accounting — Forage</div>
+            <div class="meta">Online · Oct 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Projects</h2></div>
+      <div class="grid cols-3">
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop" alt="Analytics dashboard preview" />
+          <h3>Fixed Asset Register + QR</h3>
+          <p>Corporate-ready asset tagging system with QR/Barcode labels and audit logs.</p>
+          <div class="tags"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">QR</span></div>
+        </article>
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Cash management visuals" />
+          <h3>Cash Management Playbook</h3>
+          <p>Daily cash positioning model and reconciliation workflow for retail operations.</p>
+          <div class="tags"><span class="tag">Cash Ops</span><span class="tag">Controls</span><span class="tag">ERP</span></div>
+        </article>
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" alt="Industry analysis charts" />
+          <h3>Industry Ratio Analysis</h3>
+          <p>Petrochemical benchmarking with ratio analysis and executive summary.</p>
+          <div class="tags"><span class="tag">Financial Analysis</span><span class="tag">Power BI</span></div>
+        </article>
+        <!-- placeholders to expand later -->
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop" alt="ERP workflow" />
+          <h3>ERP Reconciliation Pack</h3>
+          <p>Monthly close package aligning subledgers and GL with exception tracking.</p>
+          <div class="tags"><span class="tag">Oracle/Odoo</span><span class="tag">Close</span></div>
+        </article>
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="Excel models" />
+          <h3>Revenue Recognition Model</h3>
+          <p>Progress-based revenue tracking with control checks and audit trail.</p>
+          <div class="tags"><span class="tag">Excel</span><span class="tag">IFRS</span></div>
+        </article>
+        <article class="card project">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Team collaboration" />
+          <h3>Management Reporting Kit</h3>
+          <p>Clean monthly pack: P&L, balance sheet, cash flow with commentary templates.</p>
+          <div class="tags"><span class="tag">Reporting</span><span class="tag">Controls</span></div>
+        </article>
       </div>
     </section>
 
@@ -206,14 +331,23 @@
           </div>
 
           <button id="submitBtn" class="btn primary" type="submit">Send message</button>
-          <div class="hint">No spam — I usually respond within 24h.</div>
+          <div class="hint">No spam — I usually respond within 24h. Or reach me directly: 
+            <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a> ·
+            <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a> ·
+            <a href="tel:+966560651064">Call</a>
+          </div>
         </form>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2025 Osama Marashdeh. All rights reserved.
+    <div>© 2025 Osama Marashdeh. All rights reserved.</div>
+    <div class="socials">
+      <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a>
+      <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+      <a href="https://wa.me/966560651064" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+    </div>
   </footer>
 
   <!-- SUCCESS MODAL -->
