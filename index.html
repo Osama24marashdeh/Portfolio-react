@@ -1,198 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Osama Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Osama Marashdeh — Accountant & Financial Analyst portfolio: projects, services, and contact." />
+  <title>Osama Marashdeh — Portfolio</title>
   <style>
-    :root {
-      --bg: #0b1323;
-      --text: #e5e7eb;
-      --accent: #3b82f6;
-      --border: #1f2937;
+    :root{
+      --bg:#0b1220;        /* page background */
+      --surface:#0f172a;   /* cards/nav */
+      --muted:#94a3b8;     /* secondary text */
+      --text:#e5e7eb;      /* primary text */
+      --accent:#38bdf8;    /* cyan */
+      --accent-2:#22c55e;  /* green */
+      --border:#1e293b;    /* borders */
+      --danger:#ef4444;    /* errors */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#3b82f6)}
+    .nav-actions{display:flex;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text);transition:.2s ease;cursor:pointer}
+    .btn:hover{border-color:var(--accent);color:var(--accent)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#3b82f6);border-color:transparent;color:#06131f;box-shadow:0 8px 24px rgba(56,189,248,.25)}
+    .btn.primary:hover{filter:brightness(1.05)}
 
-    header {
-      text-align: center;
-      padding: 40px 20px;
-    }
+    /* HERO */
+    .hero{padding:72px 0 36px;border-bottom:1px solid var(--border);background:radial-gradient(1200px 400px at 50% -50%,rgba(56,189,248,.12),transparent)}
+    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 22px}
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
 
-    header h1 {
-      font-size: 2.2rem;
-      margin: 0;
-      color: var(--accent);
-    }
+    /* SECTION */
+    section{padding:54px 0}
+    .section-title{display:flex;align-items:center;gap:10px;margin:0 0 18px}
+    .section-title .bar{width:6px;height:20px;border-radius:999px;background:linear-gradient(180deg,var(--accent),#3b82f6)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 1.1rem;
-    }
+    /* GRID */
+    .grid{display:grid;gap:16px}
+    @media (min-width:700px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    @media (min-width:900px){.grid.cols-2{grid-template-columns:1.1fr .9fr}}
 
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    /* ABOUT */
+    .about{display:grid;gap:16px}
+    @media (min-width:900px){.about{grid-template-columns:1fr 1fr}}
+    .about .card{padding:22px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .kpi{padding:16px;border-radius:12px;border:1px dashed var(--border);text-align:center}
+    .kpi b{display:block;font-size:22px}
+    .kpi span{color:var(--muted);font-size:12px}
 
-    section {
-      margin-bottom: 40px;
-    }
+    /* PROJECTS */
+    .project{padding:18px}
+    .project h3{margin:0 0 6px;font-size:18px}
+    .project p{margin:0 0 10px;color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{padding:6px 10px;border-radius:999px;background:#0b1323;border:1px solid var(--border);font-size:12px;color:var(--muted)}
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: var(--accent);
-    }
+    /* CONTACT */
+    .contact .card{padding:22px}
+    form{display:grid;gap:12px}
+    label{font-size:14px;color:var(--muted)}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:var(--text)}
+    input:focus, textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(56,189,248,.15)}
+    .row{display:grid;gap:12px}
+    @media (min-width:700px){.row{grid-template-columns:1fr 1fr}}
+    .hint{font-size:12px;color:var(--muted)}
+    .error{font-size:12px;color:var(--danger);display:none}
 
-    .card {
-      background: #111827;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    }
+    /* SUCCESS MODAL */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,.6);z-index:60}
+    .modal .box{width:min(520px,92%);background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow);text-align:center}
+    .modal h3{margin:0 0 8px}
+    .modal p{margin:0 0 16px;color:var(--muted)}
 
-    form label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      margin-top: 6px;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #2563eb;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    .success-message {
-      display: none;
-      margin-top: 15px;
-      padding: 12px;
-      background: #10b981; /* لون أخضر للتأكيد */
-      color: white;
-      border-radius: 8px;
-    }
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:22px 0;color:#9ca3af;text-align:center}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Osama Hasan Mouhammed Marashdeh</h1>
-    <p>Accountant | Financial Analyst | Portfolio</p>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Homepage">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Osama Marashdeh</span>
+      </a>
+      <div class="nav-actions">
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#about">About</a>
+        <a class="btn primary" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <div class="container">
+      <h1>Accountant & Financial Analyst focused on automation and clean reporting.</h1>
+      <p>Specialized in cash management, fixed assets, and building practical dashboards (Excel / Power BI). Based in Saudi Arabia.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#contact">Let's work together</a>
+        <a class="btn" href="#projects">See projects</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>About Me</h2>
-      <div class="card">
-        <p>
-          I am an accountant with experience in financial analysis, ERP systems, and project accounting. 
-          Passionate about digital transformation and automation in finance.
-        </p>
+    <!-- PROJECTS -->
+    <section id="projects" class="container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Selected Projects</h2></div>
+      <div class="grid cols-3">
+        <article class="card project">
+          <h3>Fixed Asset Register + QR</h3>
+          <p>A corporate-ready asset tagging system with QR/Barcode labels and audit logs.</p>
+          <div class="tags">
+            <span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">QR</span>
+          </div>
+        </article>
+        <article class="card project">
+          <h3>Cash Management Playbook</h3>
+          <p>Daily cash positioning model and reconciliation workflow for retail operations.</p>
+          <div class="tags">
+            <span class="tag">Cash Ops</span><span class="tag">Controls</span><span class="tag">Odoo/Oracle</span>
+          </div>
+        </article>
+        <article class="card project">
+          <h3>Industry Ratio Analysis</h3>
+          <p>Petrochemical company analysis with ratio benchmarking and executive summary.</p>
+          <div class="tags">
+            <span class="tag">Financial Analysis</span><span class="tag">Power BI</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="card">
-        <ul>
-          <li>Financial Dashboard using Excel & Power BI</li>
-          <li>Fixed Asset Management System with QR Codes</li>
-          <li>Petrochemical Industry Financial Analysis</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Contact Me</h2>
-      <div class="card">
-        <form id="contactForm" action="https://formspree.io/f/mgvlqjvr" method="POST">
-          <label>
-            Name<br>
-            <input type="text" name="name" required>
-          </label>
-          <label>
-            Email<br>
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            Project Brief<br>
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button type="submit">Send</button>
-        </form>
-        <div id="successMessage" class="success-message">
-          ✅ شكراً! تم إرسال رسالتك بنجاح وسأتواصل معك قريباً.
+    <!-- ABOUT -->
+    <section id="about" class="container">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">About</h2></div>
+      <div class="about">
+        <div class="card">
+          <p>
+            I'm Osama Hasan Mouhammed Marashdeh, an accountant with hands-on experience in project accounting and
+            financial analysis. I care about reliable numbers, fast workflows, and documentation that scales.
+          </p>
+          <p class="hint">Tools: Excel · Power BI · QuickBooks · ERP (Oracle/Odoo)</p>
+          <div class="kpis">
+            <div class="kpi"><b>3+ yrs</b><span>Accounting experience</span></div>
+            <div class="kpi"><b>20+</b><span>Dashboards & reports</span></div>
+            <div class="kpi"><b>FMVA</b><span>Certification</span></div>
+          </div>
         </div>
+        <div class="card">
+          <p style="margin:0 0 8px">What I can help with</p>
+          <ul style="margin:0 0 6px 18px">
+            <li>Cash control & reconciliation workflows</li>
+            <li>Fixed asset registers with QR/Barcode labels</li>
+            <li>Executive dashboards (Excel/Power BI)</li>
+            <li>Financial statements analysis & ratios</li>
+          </ul>
+          <p class="hint">Need something specific? Tell me your constraints (timelines, ERP, data) and I’ll propose a clear plan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container contact">
+      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Contact</h2></div>
+      <div class="card">
+        <form id="contactForm" action="https://formspree.io/f/mgvlqjvr" method="POST" novalidate>
+          <!-- honeypot for bots -->
+          <input type="text" name="_gotcha" autocomplete="off" style="display:none" tabindex="-1" />
+          <input type="hidden" name="_subject" value="New portfolio inquiry" />
+
+          <div class="row">
+            <div>
+              <label>Full name</label>
+              <input name="name" type="text" placeholder="Your name" required />
+              <div class="error" data-error-for="name">Please enter your name.</div>
+            </div>
+            <div>
+              <label>Email</label>
+              <input name="email" type="email" placeholder="name@email.com" required />
+              <div class="error" data-error-for="email">Enter a valid email.</div>
+            </div>
+          </div>
+
+          <div>
+            <label>Project brief</label>
+            <textarea name="message" rows="5" placeholder="Tell me about your project (goals, deadline, budget)…" required></textarea>
+            <div class="error" data-error-for="message">Please add a short brief.</div>
+          </div>
+
+          <button id="submitBtn" class="btn primary" type="submit">Send message</button>
+          <div class="hint">No spam — I usually respond within 24h.</div>
+        </form>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Osama Marashdeh. All rights reserved.
+    © 2025 Osama Marashdeh. All rights reserved.
   </footer>
 
-  <script>
-    const form = document.getElementById('contactForm');
-    const successDiv = document.getElementById('successMessage');
+  <!-- SUCCESS MODAL -->
+  <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="box">
+      <h3 id="successTitle">✅ Message sent</h3>
+      <p>Thanks! Your message has been delivered. I’ll get back to you soon.</p>
+      <button class="btn primary" id="closeModal">Close</button>
+    </div>
+  </div>
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          successDiv.style.display = 'block';
-        } else {
-          response.json().then(data => {
-            if (data.errors) {
-              alert("Error: " + data.errors.map(error => error.message).join(", "));
-            } else {
-              alert("Oops! There was a problem sending your message.");
-            }
-          });
-        }
-      }).catch(error => {
-        alert("Oops! There was a problem sending your message.");
-      });
+  <script>
+    // Helper: show/hide field error
+    function setFieldError(el, hasError){
+      const key = el.getAttribute('name');
+      const err = document.querySelector(`[data-error-for="${key}"]`);
+      if(!err) return;
+      err.style.display = hasError ? 'block' : 'none';
+    }
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const modal = document.getElementById('successModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // basic validation
+    form.addEventListener('input', (e)=>{
+      if(e.target.matches('input[required], textarea[required]')){
+        const valid = e.target.checkValidity();
+        setFieldError(e.target, !valid);
+      }
     });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+
+      // Validate all required fields
+      let ok = true;
+      form.querySelectorAll('input[required], textarea[required]').forEach(el=>{
+        const valid = el.checkValidity();
+        setFieldError(el, !valid);
+        if(!valid) ok = false;
+      });
+      if(!ok) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try{
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(res.ok){
+          form.reset();
+          modal.style.display = 'flex';
+        }else{
+          // Try to read errors from Formspree
+          let msg = 'There was a problem sending your message.';
+          try{
+            const data = await res.json();
+            if(data && data.errors){ msg = data.errors.map(e=>e.message).join(', '); }
+          }catch{}
+          alert(msg);
+        }
+      }catch(err){
+        alert('Network error. Please try again.');
+      }finally{
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      }
+    });
+
+    // modal controls
+    function hideModal(){ modal.style.display = 'none'; }
+    closeModal.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) hideModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hideModal(); });
   </script>
 </body>
 </html>
