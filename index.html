@@ -1,437 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Osama Marashdeh — Accountant & Financial Analyst portfolio: projects, skills, experience, and contact." />
-  <meta name="theme-color" content="#0b1220" />
-  <meta property="og:title" content="Osama Marashdeh — Accountant & Financial Analyst" />
-  <meta property="og:description" content="Cash management, fixed assets, dashboards (Excel/Power BI). Based in Saudi Arabia." />
-  <meta property="og:type" content="website" />
-  <title>Osama Marashdeh — Portfolio</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Osama Marashdeh – Accountant & Financial Analyst</title>
+  <meta name="description" content="Portfolio website for Osama Marashdeh – Accountant & Financial Analyst. Cash management, financial reporting, ERP (Oracle/Odoo), fixed assets with QR/RFID, and Power BI dashboards.">
+  <meta name="keywords" content="Accountant, Financial Analyst, Cash Management, ERP, Oracle, Odoo, Power BI, Fixed Assets, RFID, QR, Saudi Arabia, Jordan">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Cairo:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b1220;
-      --surface:#0f172a;
-      --muted:#94a3b8;
-      --text:#e5e7eb;
-      --accent:#38bdf8;
-      --accent-2:#22c55e;
-      --border:#1e293b;
-      --danger:#ef4444;
-      --radius:16px;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --space:54px;
-    }
-    *{box-sizing:border-box}
-    html:focus-within{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
-    .arabic{font-family:Cairo, Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block;border-radius:12px;border:1px solid var(--border)}
-    .container{width:min(1100px,92%);margin-inline:auto}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);color:#06131f;font-weight:900}
-    .logo span{transform:translateY(1px)}
-    .brand .name{font-weight:800}
-    .nav-actions{display:flex;gap:10px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text);transition:.2s ease;cursor:pointer}
-    .btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent)}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),#3b82f6);border-color:transparent;color:#06131f;box-shadow:0 8px 24px rgba(56,189,248,.25)}
-    .btn.primary:hover,.btn.primary:focus-visible{filter:brightness(1.05)}
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    /* HERO */
-    .hero{padding:72px 0 36px;border-bottom:1px solid var(--border);background:radial-gradient(1200px 400px at 50% -50%,rgba(56,189,248,.12),transparent)}
-    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 10px}
-    .hero p{color:var(--muted);margin:0 0 22px}
-    .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
-    .avatar{width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)}
-
-    /* SECTIONS */
-    section{padding:var(--space) 0; scroll-margin-top:72px;}
-    .section-title{display:flex;align-items:center;gap:10px;margin:0 0 18px}
-    .section-title .bar{width:6px;height:20px;border-radius:999px;background:linear-gradient(180deg,var(--accent),#3b82f6)}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-
-    /* GRID */
-    .grid{display:grid;gap:16px}
-    @media (min-width:700px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-    @media (min-width:900px){.grid.cols-2{grid-template-columns:1.1fr .9fr}}
-
-    /* ABOUT */
-    .about{display:grid;gap:16px}
-    @media (min-width:900px){.about{grid-template-columns:1fr 1fr}}
-    .about .card{padding:22px}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-    .kpi{padding:16px;border-radius:12px;border:1px dashed var(--border);text-align:center}
-    .kpi b{display:block;font-size:22px}
-    .kpi span{color:var(--muted);font-size:12px}
-
-    /* SUMMARY */
-    .summary .card{padding:22px}
-
-    /* SKILLS */
-    .skills .card{padding:22px}
-    .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media (min-width:700px){.skill-grid{grid-template-columns:repeat(4,1fr)}}
-    .pill{padding:10px 12px;border-radius:999px;border:1px solid var(--border);background:#0b1323;text-align:center;color:var(--muted);font-size:14px}
-
-    /* EXPERIENCE */
-    .exp .card{padding:22px}
-    .exp-item{padding:16px;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;transition:transform .2s ease, box-shadow .2s ease}
-    .exp-item:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
-    .exp-item h3{margin:0 0 6px;font-size:18px}
-    .exp-item .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
-    .bullets{margin:0 0 0 18px}
-
-    /* EDUCATION & COURSES */
-    .edu .card,.courses .card{padding:22px}
-    .timeline{display:grid;gap:12px}
-    .t-item{border:1px solid var(--border);border-radius:12px;padding:14px}
-    .t-item .title{font-weight:700}
-    .t-item .meta{color:var(--muted);font-size:13px}
-
-    /* PROJECTS */
-    .project{padding:18px;transition:transform .2s ease, box-shadow .2s ease}
-    .project:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
-    .project img{aspect-ratio:16/9;object-fit:cover;border-radius:12px}
-    .project h3{margin:10px 0 6px;font-size:18px}
-    .project p{margin:0 0 10px;color:var(--muted)}
-    .tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tag{padding:6px 10px;border-radius:999px;background:#0b1323;border:1px solid var(--border);font-size:12px;color:var(--muted)}
-
-    /* CONTACT */
-    .contact .card{padding:22px}
-    form{display:grid;gap:12px}
-    label{font-size:14px;color:var(--muted)}
-    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b1323;color:var(--text)}
-    input:focus, textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(56,189,248,.15)}
-    .row{display:grid;gap:12px}
-    @media (min-width:700px){.row{grid-template-columns:1fr 1fr}}
-    .hint{font-size:12px;color:var(--muted)}
-    .error{font-size:12px;color:var(--danger);display:none}
-
-    /* SUCCESS MODAL */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,.6);z-index:60}
-    .modal .box{width:min(520px,92%);background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow);text-align:center}
-    .modal h3{margin:0 0 8px}
-    .modal p{margin:0 0 16px;color:var(--muted)}
-
-    /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:22px 0;color:#9ca3af;text-align:center}
-    .socials{display:flex;gap:10px;justify-content:center;margin-top:8px}
-    .socials a{border:1px solid var(--border);padding:8px 12px;border-radius:999px}
-  </style>
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
-<body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Homepage">
-        <span class="logo" aria-hidden="true"><span>OM</span></span>
-        <span class="name">Osama Marashdeh</span>
-      </a>
-      <div class="nav-actions">
-        <a class="btn" href="#projects">Projects</a>
-        <a class="btn" href="#about">About</a>
-        <a class="btn primary" href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <header id="top" class="hero">
-    <div class="container">
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
-        <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" loading="eager" />
-        <div>
-          <h1>Accountant & Financial Analyst focused on automation and clean reporting.</h1>
-          <p>Specialized in cash management, fixed assets, and building practical dashboards (Excel / Power BI). Based in Saudi Arabia.</p>
-          <div class="hero-cta">
-            <a class="btn primary" href="#contact">Let's work together</a>
-            <a class="btn" href="assets/Osama-Marashdeh-Resume.pdf" download target="_blank" rel="noreferrer noopener">Download Resume</a>
-          </div>
-        </div>
-      </div>
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- If you want to use an image logo, uncomment and replace src -->
+        <!-- <img src="assets/img/logo.webp" alt="Osama Logo"> -->
+        <h1 class="sitename">Osama&nbsp;Marashdeh<span class="text-primary">.</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#pricing">Packages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="#consultation">Free Consultation</a>
+
     </div>
   </header>
 
-  <main>
-    <!-- SUMMARY -->
-    <section class="summary container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Summary</h2></div>
-      <div class="card">
-        <p>
-          Proactive and detail-oriented Accountant experienced in managing comprehensive accounting functions and leading
-          financial operations in contracting sectors. Took full ownership of accounting operations at Pine Landscaping Company
-          after an intensive ramp-up, and currently manage financial operations for the Four Seasons project (≈ SAR 30M).
-          FMVA® candidate (CFI) to deepen financial modeling and analysis capabilities.
-        </p>
-      </div>
-    </section>
+  <main class="main">
 
-    <!-- ABOUT -->
-    <section id="about" class="container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">About</h2></div>
-      <div class="about">
-        <div class="card">
-          <p>
-            I'm Osama Hasan Mouhammed Marashdeh, an accountant with hands-on experience in project accounting and
-            financial analysis. I care about reliable numbers, fast workflows, and documentation that scales.
-          </p>
-          <p class="hint">Tools: Excel · Power BI · QuickBooks · Al‑Ameen · ERP (Oracle/Odoo)</p>
-          <div class="kpis">
-            <div class="kpi"><b>3+ yrs</b><span>Accounting experience</span></div>
-            <div class="kpi"><b>20+</b><span>Dashboards & reports</span></div>
-            <div class="kpi"><b>FMVA</b><span>Candidate (CFI)</span></div>
-          </div>
-        </div>
-        <div class="card center">
-          <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="skills container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Skills</h2></div>
-      <div class="card">
-        <div class="skill-grid">
-          <div class="pill">QuickBooks</div>
-          <div class="pill">Project Financial Management</div>
-          <div class="pill">Microsoft Office</div>
-          <div class="pill">Power BI</div>
-          <div class="pill">Al‑Ameen Business Solutions</div>
-          <div class="pill">Analytical Skills</div>
-          <div class="pill">Financial Reporting</div>
-          <div class="pill">VAT & Compliance</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="exp container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Professional Experience</h2></div>
-      <div class="card">
-        <div class="exp-item">
-          <h3>Accountant — Pine Landscaping Company</h3>
-          <div class="meta">Jeddah · May 2023 – Present</div>
-          <ul class="bullets">
-            <li>Took full ownership of accounting operations after 8‑month structured training under the Chief Accountant.</li>
-            <li>Oversaw financial management of the SAR 30M Four Seasons project (cost control & revenue tracking).</li>
-            <li>Filed VAT returns and maintained full compliance with Saudi tax regulations.</li>
-            <li>Designed and implemented Power BI dashboards to support strategic decisions.</li>
-            <li>Improved accuracy, timeliness, and clarity of financial reporting for executives.</li>
-            <li>Mentored and onboarded a junior accountant; streamlined processes to cut reporting turnaround by ~30%.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="edu container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Education</h2></div>
-      <div class="card">
-        <div class="timeline">
-          <div class="t-item">
-            <div class="title">Bachelor's Degree in Accounting — Yarmouk University</div>
-            <div class="meta">Irbid · Sep 2019 – Feb 2023</div>
-            <p style="margin:6px 0 0">Comprehensive foundation in Financial Reporting, Tax Accounting, and Auditing; capstone analysis with strategic recommendations.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSES -->
-    <section id="courses" class="courses container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Courses</h2></div>
-      <div class="card">
-        <div class="timeline">
-          <div class="t-item">
-            <div class="title">Financial Modeling & Valuation Analyst (FMVA®) — CFI</div>
-            <div class="meta">Online · Expected Dec 2025</div>
-          </div>
-          <div class="t-item">
-            <div class="title">McKinsey Forward Program — McKinsey & Company</div>
-            <div class="meta">Online · May 2023</div>
-          </div>
-          <div class="t-item">
-            <div class="title">Introduction to Financial Accounting: The Accounting Cycle — Coursera</div>
-            <div class="meta">Online · Nov 2023</div>
-          </div>
-          <div class="t-item">
-            <div class="title">ACCA Advantage: Practical Experience in Accounting — Forage</div>
-            <div class="meta">Online · Oct 2023</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="container">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Projects</h2></div>
-      <div class="grid cols-3">
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop" alt="Analytics dashboard preview" loading="lazy" />
-          <h3>Fixed Asset Register + QR</h3>
-          <p>Corporate-ready asset tagging system with QR/Barcode labels and audit logs.</p>
-          <div class="tags"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">QR</span></div>
-        </article>
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Cash management visuals" loading="lazy" />
-          <h3>Cash Management Playbook</h3>
-          <p>Daily cash positioning model and reconciliation workflow for retail operations.</p>
-          <div class="tags"><span class="tag">Cash Ops</span><span class="tag">Controls</span><span class="tag">ERP</span></div>
-        </article>
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" alt="Industry analysis charts" loading="lazy" />
-          <h3>Industry Ratio Analysis</h3>
-          <p>Petrochemical benchmarking with ratio analysis and executive summary.</p>
-          <div class="tags"><span class="tag">Financial Analysis</span><span class="tag">Power BI</span></div>
-        </article>
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop" alt="ERP workflow" loading="lazy" />
-          <h3>ERP Reconciliation Pack</h3>
-          <p>Monthly close package aligning subledgers and GL with exception tracking.</p>
-          <div class="tags"><span class="tag">Oracle/Odoo</span><span class="tag">Close</span></div>
-        </article>
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="Excel models" loading="lazy" />
-          <h3>Revenue Recognition Model</h3>
-          <p>Progress-based revenue tracking with control checks and audit trail.</p>
-          <div class="tags"><span class="tag">Excel</span><span class="tag">IFRS</span></div>
-        </article>
-        <article class="card project">
-          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Team collaboration" loading="lazy" />
-          <h3>Management Reporting Kit</h3>
-          <p>Clean monthly pack: P&L, balance sheet, cash flow with commentary templates.</p>
-          <div class="tags"><span class="tag">Reporting</span><span class="tag">Controls</span></div>
-        </article>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="container contact">
-      <div class="section-title"><span class="bar"></span><h2 style="margin:0">Contact</h2></div>
-      <div class="card">
-        <form id="contactForm" action="https://formspree.io/f/mgvlqjvr" method="POST" novalidate>
-          <input type="text" name="_gotcha" autocomplete="off" class="sr-only" aria-hidden="true" tabindex="-1" />
-          <input type="hidden" name="_subject" value="New portfolio inquiry" />
-
-          <div class="row">
-            <div>
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
-              <div class="error" data-error-for="name">Please enter your name.</div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+              <h2>Accounting, Cash Management & BI Dashboards</h2>
+              <p>I'm <strong>Osama Marashdeh</strong>, an accountant based in Saudi Arabia with ~<strong>3+ years</strong> of hands‑on experience in financial accounting, cash reconciliation, fixed‑asset registers (QR/RFID), and ERP (Oracle/Odoo). I build clean <strong>Power BI</strong> dashboards and streamline processes for contracting & retail projects.</p>
+              <div class="hero-btns">
+                <a href="#consultation" class="btn btn-primary">Book a Free Call</a>
+                <a href="#services" class="btn btn-outline">See Services</a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>+</h3>
+                  <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>+</h3>
+                  <p>Projects & Reports</p>
+                </div>
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter"></span>%</h3>
+                  <p>On‑time Delivery</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="name@email.com" required />
-              <div class="error" data-error-for="email">Enter a valid email.</div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
+              <!-- Replace with your real photo path -->
+              <img src="assets/img/osama/profile.jpg" alt="Osama Marashdeh – Accountant" class="img-fluid rounded-4 shadow">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
+            <div class="about-image">
+              <img src="assets/img/about/accounting-desk.webp" alt="About Osama" class="img-fluid main-image">
+              <div class="experience-badge">
+                <span class="years">FMVA</span>
+                <span class="text">Certified</span>
+              </div>
             </div>
           </div>
 
-          <div>
-            <label for="message">Project brief</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project (goals, deadline, budget)…" required></textarea>
-            <div class="error" data-error-for="message">Please add a short brief.</div>
-          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="about-content">
+              <h2>Who I Am</h2>
+              <p class="lead">General accountant with experience across <strong>contracting projects</strong> (e.g., Four Seasons project) and <strong>retail</strong>. I care about accuracy, clean documentation, and automation.</p>
+              <p>Skills: Financial reporting, cash management & reconciliations, budgeting, cost control, fixed‑asset tracking (QR/RFID), ERP (Oracle/Odoo), and <strong>Power BI</strong> dashboards. Tools: Excel, QuickBooks, Microsoft Office.</p>
 
-          <button id="submitBtn" class="btn primary" type="submit">Send message</button>
-          <div class="hint">No spam — I usually respond within 24h. Or reach me directly:
-            <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a> ·
-            <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a> ·
-            <a href="tel:+966560651064">Call</a>
+              <div class="row features-row">
+                <div class="col-md-6">
+                  <div class="feature-item">
+                    <div class="icon"><i class="bi bi-cash-coin"></i></div>
+                    <h4>Cash Management</h4>
+                    <p>Daily cash & bank reconciliations, POS settlement, variance analysis.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="feature-item">
+                    <div class="icon"><i class="bi bi-qr-code"></i></div>
+                    <h4>Fixed Assets (QR/RFID)</h4>
+                    <p>Asset registers, tagging, movement tracking, impairment & disposal.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="feature-item">
+                    <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+                    <h4>Reporting & BI</h4>
+                    <p>Clean dashboards for management, ratio analysis, KPIs & trends.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="feature-item">
+                    <div class="icon"><i class="bi bi-journal-check"></i></div>
+                    <h4>Compliance</h4>
+                    <p>KSA VAT basics, documentation, audit support, policies & SOPs.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-button">
+                <a href="#contact" class="btn btn-primary">Download CV (PDF)</a>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
+    <!-- /About Section -->
+
+    <!-- Process Section -->
+    <section id="process" class="work-process section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>My Work Process</h2>
+        <div><span>Check</span> <span class="description-title">How I Work</span></div>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="steps-content">
+              <h2>From Discovery to Delivery</h2>
+              <p class="lead">Simple, transparent, and on‑time. I document each step so stakeholders stay aligned.</p>
+              <p>We start with understanding your current setup, then plan the right reports, controls, and automations. Implementation follows with iterative reviews, and delivery ends with training & handover.</p>
+              <div class="steps-cta">
+                <a href="#contact" class="btn btn-primary">Start a Project</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="300">
+            <div class="steps-list">
+              <div class="step-item"><div class="step-number">01</div><div class="step-content"><h3>Discovery & Analysis</h3><p>Gather requirements, current files, ERP flows, and gaps.</p></div></div>
+              <div class="step-item"><div class="step-number">02</div><div class="step-content"><h3>Design & Planning</h3><p>Define charts, dashboards, SOPs, and data sources.</p></div></div>
+              <div class="step-item"><div class="step-number">03</div><div class="step-content"><h3>Implementation</h3><p>Build Excel/BI assets, ERP mappings, asset tags & forms.</p></div></div>
+              <div class="step-item"><div class="step-number">04</div><div class="step-content"><h3>Testing & Training</h3><p>Validate numbers, train team, collect feedback.</p></div></div>
+              <div class="step-item"><div class="step-number">05</div><div class="step-content"><h3>Handover & Support</h3><p>Deliver docs & manuals, support for go‑live.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Process Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <div><span>What I</span> <span class="description-title">Offer</span></div>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-journal-text"></i></div>
+              <h3>Financial Reporting</h3>
+              <p>Monthly closes, trial balance review, P&L/BS, aging & schedules.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> Close checklist</li>
+                <li><i class="bi bi-check-circle"></i> Docs & workpapers</li>
+                <li><i class="bi bi-check-circle"></i> Audit‑ready files</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-cash-stack"></i></div>
+              <h3>Cash & Reconciliations</h3>
+              <p>Daily cash/bank reconciliation, POS settlement, variance reports.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> Bank & petty cash</li>
+                <li><i class="bi bi-check-circle"></i> Collection tracking</li>
+                <li><i class="bi bi-check-circle"></i> Controls & SOPs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-qr-code-scan"></i></div>
+              <h3>Fixed Assets (QR/RFID)</h3>
+              <p>Asset register build, tagging, movement logs, depreciation & disposals.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> QR/Barcode labels</li>
+                <li><i class="bi bi-check-circle"></i> RFID option</li>
+                <li><i class="bi bi-check-circle"></i> Physical count</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-pie-chart"></i></div>
+              <h3>Power BI Dashboards</h3>
+              <p>Management dashboards for sales, costs, cash, and KPIs.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> Data model & ETL</li>
+                <li><i class="bi bi-check-circle"></i> KPI design</li>
+                <li><i class="bi bi-check-circle"></i> Training session</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-cpu"></i></div>
+              <h3>ERP Support (Oracle/Odoo)</h3>
+              <p>Chart of accounts, roles & flows mapping, data templates.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> COA mapping</li>
+                <li><i class="bi bi-check-circle"></i> Data import/export</li>
+                <li><i class="bi bi-check-circle"></i> SOPs & training</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+            <div class="service-card">
+              <div class="icon-box"><i class="bi bi-receipt"></i></div>
+              <h3>KSA VAT & Compliance</h3>
+              <p>Basic VAT handling, documentation, and audit assistance.</p>
+              <ul class="service-features">
+                <li><i class="bi bi-check-circle"></i> Invoices & files</li>
+                <li><i class="bi bi-check-circle"></i> Support for audits</li>
+                <li><i class="bi bi-check-circle"></i> Policy drafts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="800">
+          <a href="#contact" class="btn btn-primary">Request a Consultation</a>
+        </div>
+      </div>
+    </section>
+    <!-- /Services Section -->
+
+    <!-- Consultation Section -->
+    <section id="consultation" class="consultation section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Consultation</h2>
+        <div><span>Book a</span> <span class="description-title">Free Consultation</span></div>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="cta-wrapper">
+          <div class="row align-items-center">
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+              <div class="cta-content">
+                <h2>Let's streamline your accounting workflow</h2>
+                <p>Share your current challenges (cash, fixed assets, reporting, ERP) and I'll propose a quick plan with timelines and deliverables.</p>
+                <div class="cta-stats">
+                  <div class="stat-item"><span class="number"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="0">10</span>+</span><span class="text">ERP/BI Builds</span></div>
+                  <div class="stat-item"><span class="number"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="0">20</span>+</span><span class="text">Asset Registers</span></div>
+                  <div class="stat-item"><span class="number"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="0">30</span>+</span><span class="text">Reconciliations/mo</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
+              <div class="cta-form">
+                <h3>Tell me about your needs</h3>
+                <p>I'll get back within 24 hours.</p>
+                <form action="forms/consultation.php" method="post" class="php-email-form">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="phone" placeholder="Your Phone">
+                  </div>
+                  <div class="form-group mt-3">
+                    <select class="form-control" name="service" required>
+                      <option value="" disabled selected>Select Service</option>
+                      <option>Financial Reporting</option>
+                      <option>Cash & Reconciliations</option>
+                      <option>Fixed Assets (QR/RFID)</option>
+                      <option>Power BI Dashboards</option>
+                      <option>ERP Support (Oracle/Odoo)</option>
+                      <option>KSA VAT & Compliance</option>
+                    </select>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit">Get Started</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Consultation Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Packages</h2>
+        <div><span>Simple</span> <span class="description-title">Pricing</span></div>
+      </div>
+
+      <div class="container pricing-toggle-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-item">
+              <div class="pricing-header">
+                <h3>Starter</h3>
+                <div class="price-monthly">SR 1,500<span>/project</span></div>
+                <p>1 mini dashboard OR cash recon file</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> 1 deliverable</li>
+                  <li><i class="bi bi-check-circle"></i> PDF manual</li>
+                  <li><i class="bi bi-check-circle"></i> 1 revision</li>
+                </ul>
+              </div>
+              <div class="pricing-footer"><a href="#contact" class="btn btn-outline">Get Started</a></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-item featured">
+              <div class="pricing-badge">Popular</div>
+              <div class="pricing-header">
+                <h3>Professional</h3>
+                <div class="price-monthly">SR 3,500<span>/project</span></div>
+                <p>Dashboard + SOPs or Asset Register</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> 2–3 deliverables</li>
+                  <li><i class="bi bi-check-circle"></i> Training session</li>
+                  <li><i class="bi bi-check-circle"></i> 2 revisions</li>
+                </ul>
+              </div>
+              <div class="pricing-footer"><a href="#contact" class="btn btn-primary">Get Started</a></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-item">
+              <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <div class="price-monthly">Custom</div>
+                <p>ERP mapping, multi‑site assets, BI suite</p>
+              </div>
+              <div class="pricing-features">
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> Scoped proposal</li>
+                  <li><i class="bi bi-check-circle"></i> Milestone plan</li>
+                  <li><i class="bi bi-check-circle"></i> Ongoing support</li>
+                </ul>
+              </div>
+              <div class="pricing-footer"><a href="#contact" class="btn btn-outline">Contact Me</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-note text-center mt-5" data-aos="fade-up" data-aos-delay="600">
+          <p>Want something specific? <a href="#contact">Let's tailor it</a>.</p>
+        </div>
+      </div>
+    </section>
+    <!-- /Pricing Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <div><span>Reach</span> <span class="description-title">Me</span></div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="contact-info">
+              <div class="contact-card">
+                <h3>Contact Information</h3>
+                <p>For projects, collaborations, or general inquiries.</p>
+
+                <div class="contact-details">
+                  <div class="contact-item">
+                    <i class="bi bi-envelope"></i>
+                    <div>
+                      <h4>Email:</h4>
+                      <p>Osama.marashdeh@Outlook.Com</p>
+                    </div>
+                  </div>
+
+                  <div class="contact-item">
+                    <i class="bi bi-telephone"></i>
+                    <div>
+                      <h4>Phone:</h4>
+                      <p>+966 56 065 1064</p>
+                    </div>
+                  </div>
+
+                  <div class="contact-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <div>
+                      <h4>Location:</h4>
+                      <p>Al‑Ahsa, Eastern Province, Saudi Arabia</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="social-links">
+                  <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="contact-form-wrapper">
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="john@example.com" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="subject">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Project: Cash Reconciliation" required>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="message">Message</label>
+                  <textarea class="form-control" name="message" rows="7" placeholder="Tell me about your current accounting setup…" required></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Contact Section -->
+
   </main>
 
-  <footer>
-    <div>© 2025 Osama Marashdeh. All rights reserved.</div>
-    <div class="socials">
-      <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a>
-      <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-      <a href="https://wa.me/966560651064" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-4 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>Al‑Ahsa, Eastern Province</p>
+            <p>Saudi Arabia</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p><strong>Phone:</strong> <span>+966 56 065 1064</span><br>
+              <strong>Email:</strong> <span>Osama.marashdeh@Outlook.Com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h4>Follow Me</h4>
+          <div class="social-links d-flex">
+            <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noopener" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="github"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span id="year"></span> <strong class="px-1 sitename">Osama&nbsp;Marashdeh</strong> — All Rights Reserved</p>
+      <div class="credits">Built on a customized Bootstrap template.</div>
     </div>
   </footer>
 
-  <!-- SUCCESS MODAL -->
-  <div id="successModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-    <div class="box">
-      <h3 id="successTitle">✅ Message sent</h3>
-      <p>Thanks! Your message has been delivered. I’ll get back to you soon.</p>
-      <button class="btn primary" id="closeModal">Close</button>
-    </div>
-  </div>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <script>
-    function setFieldError(el, hasError){
-      const key = el.getAttribute('name');
-      const err = document.querySelector(`[data-error-for="${key}"]`);
-      if(!err) return;
-      err.style.display = hasError ? 'block' : 'none';
-    }
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
-    const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const modal = document.getElementById('successModal');
-    const closeModal = document.getElementById('closeModal');
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-    form.addEventListener('input', (e)=>{
-      if(e.target.matches('input[required], textarea[required]')){
-        const valid = e.target.checkValidity();
-        setFieldError(e.target, !valid);
-      }
-    });
-
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      let ok = true;
-      form.querySelectorAll('input[required], textarea[required]').forEach(el=>{
-        const valid = el.checkValidity();
-        setFieldError(el, !valid);
-        if(!valid) ok = false;
-      });
-      if(!ok) return;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-
-      try{
-        const formData = new FormData(form);
-        const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' }});
-        if(res.ok){
-          form.reset();
-          modal.style.display = 'flex';
-        }else{
-          let msg = 'There was a problem sending your message.';
-          try{ const data = await res.json(); if(data && data.errors){ msg = data.errors.map(e=>e.message).join(', ');} }catch{}
-          alert(msg);
-        }
-      }catch(err){
-        alert('Network error. Please try again.');
-      }finally{
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
-      }
-    });
-
-    function hideModal(){ modal.style.display = 'none'; }
-    closeModal.addEventListener('click', hideModal);
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) hideModal(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') hideModal(); });
-  </script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
