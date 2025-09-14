@@ -44,6 +44,8 @@
     .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 10px}
     .hero p{color:var(--muted);margin:0 0 22px}
     .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+    .avatar{width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)}
+    .center{text-align:center}
 
     /* SECTION */
     section{padding:54px 0}
@@ -60,8 +62,6 @@
     .about{display:grid;gap:16px}
     @media (min-width:900px){.about{grid-template-columns:1fr 1fr}}
     .about .card{padding:22px}
-    .center{text-align:center}
-    .avatar{width:220px;height:220px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)}
     .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
     .kpi{padding:16px;border-radius:12px;border:1px dashed var(--border);text-align:center}
     .kpi b{display:block;font-size:22px}
@@ -140,14 +140,17 @@
   <!-- HERO -->
   <header id="top" class="hero">
     <div class="container">
-      <div style='display:flex;flex-wrap:wrap;align-items:center;gap:20px'>
-        <img class='avatar' src='assets/osama-portrait.jpg' alt='Osama Marashdeh portrait' style='width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)'/>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
+        <!-- صورة مؤقتة (نفسها رح نستعملها بالـ About) -->
+        <img class="avatar" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop" alt="Accountant stock photo" />
         <div>
           <h1>Accountant & Financial Analyst focused on automation and clean reporting.</h1>
           <p>Specialized in cash management, fixed assets, and building practical dashboards (Excel / Power BI). Based in Saudi Arabia.</p>
-      <div class="hero-cta">
-        <a class="btn primary" href="#contact">Let's work together</a>
-        <a class="btn" href="#resume" onclick="alert('Place your PDF at assets/Osama-Marashdeh-Resume.pdf and link it here.');return false;">Download Resume</a>
+          <div class="hero-cta">
+            <a class="btn primary" href="#contact">Let's work together</a>
+            <a class="btn" href="#resume" onclick="alert('Place your PDF at assets/Osama-Marashdeh-Resume.pdf and link it here.');return false;">Download Resume</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -175,15 +178,16 @@
             I'm Osama Hasan Mouhammed Marashdeh, an accountant with hands-on experience in project accounting and
             financial analysis. I care about reliable numbers, fast workflows, and documentation that scales.
           </p>
-          <p class="hint">Tools: Excel · Power BI · QuickBooks · Al‑Ameen · ERP (Oracle/Odoo)</p>
+          <p class="hint">Tools: Excel · Power BI · QuickBooks · Al-Ameen · ERP (Oracle/Odoo)</p>
           <div class="kpis">
             <div class="kpi"><b>3+ yrs</b><span>Accounting experience</span></div>
             <div class="kpi"><b>20+</b><span>Dashboards & reports</span></div>
             <div class="kpi"><b>FMVA</b><span>Candidate (CFI)</span></div>
           </div>
         </div>
-        <div class="card">
-          <div class="center"><img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" /></div>
+        <div class="card center">
+          <!-- نفس صورة الـHero -->
+          <img class="avatar" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop" alt="Accountant stock photo" />
         </div>
       </div>
     </section>
@@ -197,7 +201,7 @@
           <div class="pill">Project Financial Management</div>
           <div class="pill">Microsoft Office</div>
           <div class="pill">Power BI</div>
-          <div class="pill">Al‑Ameen Business Solutions</div>
+          <div class="pill">Al-Ameen Business Solutions</div>
           <div class="pill">Analytical Skills</div>
           <div class="pill">Financial Reporting</div>
           <div class="pill">VAT & Compliance</div>
@@ -213,7 +217,7 @@
           <h3>Accountant — Pine Landscaping Company</h3>
           <div class="meta">Jeddah · May 2023 – Present</div>
           <ul class="bullets">
-            <li>Took full ownership of accounting operations after 8‑month structured training under the Chief Accountant.</li>
+            <li>Took full ownership of accounting operations after 8-month structured training under the Chief Accountant.</li>
             <li>Oversaw financial management of the SAR 30M Four Seasons project (cost control & revenue tracking).</li>
             <li>Filed VAT returns and maintained full compliance with Saudi tax regulations.</li>
             <li>Designed and implemented Power BI dashboards to support strategic decisions.</li>
@@ -336,7 +340,7 @@
           </div>
 
           <button id="submitBtn" class="btn primary" type="submit">Send message</button>
-          <div class="hint">No spam — I usually respond within 24h. Or reach me directly: 
+          <div class="hint">No spam — I usually respond within 24h. Or reach me directly:
             <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a> ·
             <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a> ·
             <a href="tel:+966560651064">Call</a>
