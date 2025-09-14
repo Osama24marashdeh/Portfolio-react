@@ -4,40 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Osama Marashdeh — Accountant & Financial Analyst portfolio: projects, skills, experience, and contact." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Osama Marashdeh — Accountant & Financial Analyst" />
+  <meta property="og:description" content="Cash management, fixed assets, dashboards (Excel/Power BI). Based in Saudi Arabia." />
+  <meta property="og:type" content="website" />
   <title>Osama Marashdeh — Portfolio</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Cairo:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b1220;        /* page background */
-      --surface:#0f172a;   /* cards/nav */
-      --muted:#94a3b8;     /* secondary text */
-      --text:#e5e7eb;      /* primary text */
-      --accent:#38bdf8;    /* cyan */
-      --accent-2:#22c55e;  /* green */
-      --border:#1e293b;    /* borders */
-      --danger:#ef4444;    /* errors */
+      --bg:#0b1220;
+      --surface:#0f172a;
+      --muted:#94a3b8;
+      --text:#e5e7eb;
+      --accent:#38bdf8;
+      --accent-2:#22c55e;
+      --border:#1e293b;
+      --danger:#ef4444;
       --radius:16px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
+      --space:54px;
     }
     *{box-sizing:border-box}
     html:focus-within{scroll-behavior:smooth}
     @media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
+    .arabic{font-family:Cairo, Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block;border-radius:12px;border:1px solid var(--border)}
     .container{width:min(1100px,92%);margin-inline:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     /* NAV */
     .nav{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .logo{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);color:#06131f;font-weight:900}
+    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3b82f6);color:#06131f;font-weight:900}
     .logo span{transform:translateY(1px)}
     .brand .name{font-weight:800}
     .nav-actions{display:flex;gap:10px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text);transition:.2s ease;cursor:pointer}
-    .btn:hover{border-color:var(--accent);color:var(--accent)}
+    .btn:hover,.btn:focus-visible{border-color:var(--accent);color:var(--accent)}
     .btn.primary{background:linear-gradient(135deg,var(--accent),#3b82f6);border-color:transparent;color:#06131f;box-shadow:0 8px 24px rgba(56,189,248,.25)}
-    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.primary:hover,.btn.primary:focus-visible{filter:brightness(1.05)}
 
     /* HERO */
     .hero{padding:72px 0 36px;border-bottom:1px solid var(--border);background:radial-gradient(1200px 400px at 50% -50%,rgba(56,189,248,.12),transparent)}
@@ -45,10 +56,9 @@
     .hero p{color:var(--muted);margin:0 0 22px}
     .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
     .avatar{width:140px;height:140px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)}
-    .center{text-align:center}
 
-    /* SECTION */
-    section{padding:54px 0}
+    /* SECTIONS */
+    section{padding:var(--space) 0; scroll-margin-top:72px;}
     .section-title{display:flex;align-items:center;gap:10px;margin:0 0 18px}
     .section-title .bar{width:6px;height:20px;border-radius:999px;background:linear-gradient(180deg,var(--accent),#3b82f6)}
     .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -78,7 +88,8 @@
 
     /* EXPERIENCE */
     .exp .card{padding:22px}
-    .exp-item{padding:16px;border:1px solid var(--border);border-radius:12px;margin-bottom:12px}
+    .exp-item{padding:16px;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;transition:transform .2s ease, box-shadow .2s ease}
+    .exp-item:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
     .exp-item h3{margin:0 0 6px;font-size:18px}
     .exp-item .meta{color:var(--muted);font-size:13px;margin-bottom:8px}
     .bullets{margin:0 0 0 18px}
@@ -91,7 +102,9 @@
     .t-item .meta{color:var(--muted);font-size:13px}
 
     /* PROJECTS */
-    .project{padding:18px}
+    .project{padding:18px;transition:transform .2s ease, box-shadow .2s ease}
+    .project:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+    .project img{aspect-ratio:16/9;object-fit:cover;border-radius:12px}
     .project h3{margin:10px 0 6px;font-size:18px}
     .project p{margin:0 0 10px;color:var(--muted)}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -125,7 +138,6 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Homepage">
-        <!-- Text-based logo -->
         <span class="logo" aria-hidden="true"><span>OM</span></span>
         <span class="name">Osama Marashdeh</span>
       </a>
@@ -141,13 +153,13 @@
   <header id="top" class="hero">
     <div class="container">
       <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px">
-        <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" />
+        <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" loading="eager" />
         <div>
           <h1>Accountant & Financial Analyst focused on automation and clean reporting.</h1>
           <p>Specialized in cash management, fixed assets, and building practical dashboards (Excel / Power BI). Based in Saudi Arabia.</p>
           <div class="hero-cta">
             <a class="btn primary" href="#contact">Let's work together</a>
-            <a class="btn" href="assets/Osama-Marashdeh-Resume.pdf" target="_blank" rel="noreferrer noopener">Download Resume</a>
+            <a class="btn" href="assets/Osama-Marashdeh-Resume.pdf" download target="_blank" rel="noreferrer noopener">Download Resume</a>
           </div>
         </div>
       </div>
@@ -185,13 +197,13 @@
           </div>
         </div>
         <div class="card center">
-          <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" />
+          <img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" loading="lazy" />
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="skills container">
+    <section id="skills" class="skills container">
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Skills</h2></div>
       <div class="card">
         <div class="skill-grid">
@@ -208,7 +220,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="exp container">
+    <section id="experience" class="exp container">
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Professional Experience</h2></div>
       <div class="card">
         <div class="exp-item">
@@ -227,7 +239,7 @@
     </section>
 
     <!-- EDUCATION -->
-    <section class="edu container">
+    <section id="education" class="edu container">
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Education</h2></div>
       <div class="card">
         <div class="timeline">
@@ -241,7 +253,7 @@
     </section>
 
     <!-- COURSES -->
-    <section class="courses container">
+    <section id="courses" class="courses container">
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Courses</h2></div>
       <div class="card">
         <div class="timeline">
@@ -270,38 +282,37 @@
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Projects</h2></div>
       <div class="grid cols-3">
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop" alt="Analytics dashboard preview" />
+          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop" alt="Analytics dashboard preview" loading="lazy" />
           <h3>Fixed Asset Register + QR</h3>
           <p>Corporate-ready asset tagging system with QR/Barcode labels and audit logs.</p>
           <div class="tags"><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">QR</span></div>
         </article>
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Cash management visuals" />
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Cash management visuals" loading="lazy" />
           <h3>Cash Management Playbook</h3>
           <p>Daily cash positioning model and reconciliation workflow for retail operations.</p>
           <div class="tags"><span class="tag">Cash Ops</span><span class="tag">Controls</span><span class="tag">ERP</span></div>
         </article>
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" alt="Industry analysis charts" />
+          <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop" alt="Industry analysis charts" loading="lazy" />
           <h3>Industry Ratio Analysis</h3>
           <p>Petrochemical benchmarking with ratio analysis and executive summary.</p>
           <div class="tags"><span class="tag">Financial Analysis</span><span class="tag">Power BI</span></div>
         </article>
-        <!-- placeholders to expand later -->
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop" alt="ERP workflow" />
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop" alt="ERP workflow" loading="lazy" />
           <h3>ERP Reconciliation Pack</h3>
           <p>Monthly close package aligning subledgers and GL with exception tracking.</p>
           <div class="tags"><span class="tag">Oracle/Odoo</span><span class="tag">Close</span></div>
         </article>
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="Excel models" />
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="Excel models" loading="lazy" />
           <h3>Revenue Recognition Model</h3>
           <p>Progress-based revenue tracking with control checks and audit trail.</p>
           <div class="tags"><span class="tag">Excel</span><span class="tag">IFRS</span></div>
         </article>
         <article class="card project">
-          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Team collaboration" />
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Team collaboration" loading="lazy" />
           <h3>Management Reporting Kit</h3>
           <p>Clean monthly pack: P&L, balance sheet, cash flow with commentary templates.</p>
           <div class="tags"><span class="tag">Reporting</span><span class="tag">Controls</span></div>
@@ -314,31 +325,30 @@
       <div class="section-title"><span class="bar"></span><h2 style="margin:0">Contact</h2></div>
       <div class="card">
         <form id="contactForm" action="https://formspree.io/f/mgvlqjvr" method="POST" novalidate>
-          <!-- honeypot for bots -->
-          <input type="text" name="_gotcha" autocomplete="off" style="display:none" tabindex="-1" />
+          <input type="text" name="_gotcha" autocomplete="off" class="sr-only" aria-hidden="true" tabindex="-1" />
           <input type="hidden" name="_subject" value="New portfolio inquiry" />
 
           <div class="row">
             <div>
-              <label>Full name</label>
-              <input name="name" type="text" placeholder="Your name" required />
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
               <div class="error" data-error-for="name">Please enter your name.</div>
             </div>
             <div>
-              <label>Email</label>
-              <input name="email" type="email" placeholder="name@email.com" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="name@email.com" required />
               <div class="error" data-error-for="email">Enter a valid email.</div>
             </div>
           </div>
 
           <div>
-            <label>Project brief</label>
-            <textarea name="message" rows="5" placeholder="Tell me about your project (goals, deadline, budget)…" required></textarea>
+            <label for="message">Project brief</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project (goals, deadline, budget)…" required></textarea>
             <div class="error" data-error-for="message">Please add a short brief.</div>
           </div>
 
           <button id="submitBtn" class="btn primary" type="submit">Send message</button>
-          <div class="hint">No spam — I usually respond within 24h. Or reach me directly: 
+          <div class="hint">No spam — I usually respond within 24h. Or reach me directly:
             <a href="mailto:Osama.marashdeh@Outlook.Com">Email</a> ·
             <a href="https://www.linkedin.com/in/osamamarashdeh" target="_blank" rel="noreferrer noopener">LinkedIn</a> ·
             <a href="tel:+966560651064">Call</a>
@@ -367,7 +377,6 @@
   </div>
 
   <script>
-    // Helper: show/hide field error
     function setFieldError(el, hasError){
       const key = el.getAttribute('name');
       const err = document.querySelector(`[data-error-for="${key}"]`);
@@ -380,7 +389,6 @@
     const modal = document.getElementById('successModal');
     const closeModal = document.getElementById('closeModal');
 
-    // basic validation
     form.addEventListener('input', (e)=>{
       if(e.target.matches('input[required], textarea[required]')){
         const valid = e.target.checkValidity();
@@ -390,8 +398,6 @@
 
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-
-      // Validate all required fields
       let ok = true;
       form.querySelectorAll('input[required], textarea[required]').forEach(el=>{
         const valid = el.checkValidity();
@@ -405,22 +411,13 @@
 
       try{
         const formData = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
-
+        const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' }});
         if(res.ok){
           form.reset();
           modal.style.display = 'flex';
         }else{
-          // Try to read errors from Formspree
           let msg = 'There was a problem sending your message.';
-          try{
-            const data = await res.json();
-            if(data && data.errors){ msg = data.errors.map(e=>e.message).join(', '); }
-          }catch{}
+          try{ const data = await res.json(); if(data && data.errors){ msg = data.errors.map(e=>e.message).join(', ');} }catch{}
           alert(msg);
         }
       }catch(err){
@@ -431,7 +428,6 @@
       }
     });
 
-    // modal controls
     function hideModal(){ modal.style.display = 'none'; }
     closeModal.addEventListener('click', hideModal);
     modal.addEventListener('click', (e)=>{ if(e.target === modal) hideModal(); });
