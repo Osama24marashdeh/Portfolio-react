@@ -60,6 +60,8 @@
     .about{display:grid;gap:16px}
     @media (min-width:900px){.about{grid-template-columns:1fr 1fr}}
     .about .card{padding:22px}
+    .center{text-align:center}
+    .avatar{width:220px;height:220px;object-fit:cover;border-radius:50%;border:2px solid var(--border);box-shadow:var(--shadow)}
     .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
     .kpi{padding:16px;border-radius:12px;border:1px dashed var(--border);text-align:center}
     .kpi b{display:block;font-size:22px}
@@ -178,7 +180,7 @@
           </div>
         </div>
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1551292831-023188e78222?q=80&w=1600&auto=format&fit=crop" alt="Finance desk with laptop and charts" />
+          <div class="center"><img class="avatar" src="assets/osama-portrait.jpg" alt="Osama Marashdeh portrait" /></div>
         </div>
       </div>
     </section>
